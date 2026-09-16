@@ -1,0 +1,9 @@
+{
+  "multipart": [
+    {
+      "apply": {
+        "model": "mechanical_drive:block/shaft_marker/shaft_marker_white"
+      }
+    }
+  ]
+}

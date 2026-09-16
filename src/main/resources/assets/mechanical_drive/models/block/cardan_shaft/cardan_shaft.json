@@ -1,0 +1,96 @@
+{
+	"format_version": "1.9.0",
+	"credit": "Made with Blockbench",
+	"textures": {
+		"0": "mechanical_drive:block/cardan_shaft/cardan",
+		"particle": "mechanical_drive:block/cardan_shaft/cardan"
+	},
+	"elements": [
+		{
+			"from": [
+				6.25,
+				0,
+				6.25
+			],
+			"to": [
+				9.75,
+				16,
+				9.75
+			],
+			"rotation": {
+				"angle": 0,
+				"axis": "y",
+				"origin": [
+					8,
+					8,
+					8
+				]
+			},
+			"faces": {
+				"north": {
+					"uv": [
+						4,
+						12,
+						8,
+						13
+					],
+					"texture": "#0"
+				},
+				"east": {
+					"uv": [
+						4,
+						12,
+						8,
+						13
+					],
+					"texture": "#0"
+				},
+				"south": {
+					"uv": [
+						4,
+						12,
+						8,
+						13
+					],
+					"texture": "#0"
+				},
+				"west": {
+					"uv": [
+						4,
+						12,
+						8,
+						13
+					],
+					"texture": "#0"
+				}
+			}
+		}
+	],
+	"groups": [
+		{
+			"name": "parts",
+			"origin": [
+				0,
+				0,
+				0
+			],
+			"scope": 0,
+			"color": 0,
+			"children": [
+				{
+					"name": "shaft",
+					"origin": [
+						8,
+						8,
+						8
+					],
+					"scope": 0,
+					"color": 0,
+					"children": [
+						0
+					]
+				}
+			]
+		}
+	]
+}

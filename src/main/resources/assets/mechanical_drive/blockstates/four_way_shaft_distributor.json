@@ -1,0 +1,9 @@
+{
+  "multipart": [
+    {
+      "apply": {
+        "model": "mechanical_drive:block/distributor_shaft/shaft_distributor_empty"
+      }
+    }
+  ]
+}

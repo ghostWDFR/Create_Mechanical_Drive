@@ -1,0 +1,125 @@
+{
+  "multipart": [
+    {
+      "apply": {
+        "model": "mechanical_drive:block/angle_gear/angle_gear"
+      }
+    },
+    {
+      "when": {
+        "encased": "true"
+      },
+      "apply": {
+        "model": "mechanical_drive:block/angle_gear/angle_gear_encased_frame"
+      }
+    },
+    {
+      "when": {
+        "encased": "true",
+        "north": "true"
+      },
+      "apply": {
+        "model": "mechanical_drive:block/angle_gear/angle_gear_encased_panel_north_gearbox"
+      }
+    },
+    {
+      "when": {
+        "encased": "true",
+        "north": "false"
+      },
+      "apply": {
+        "model": "mechanical_drive:block/angle_gear/angle_gear_encased_panel_north_casing"
+      }
+    },
+    {
+      "when": {
+        "encased": "true",
+        "south": "true"
+      },
+      "apply": {
+        "model": "mechanical_drive:block/angle_gear/angle_gear_encased_panel_south_gearbox"
+      }
+    },
+    {
+      "when": {
+        "encased": "true",
+        "south": "false"
+      },
+      "apply": {
+        "model": "mechanical_drive:block/angle_gear/angle_gear_encased_panel_south_casing"
+      }
+    },
+    {
+      "when": {
+        "encased": "true",
+        "west": "true"
+      },
+      "apply": {
+        "model": "mechanical_drive:block/angle_gear/angle_gear_encased_panel_west_gearbox"
+      }
+    },
+    {
+      "when": {
+        "encased": "true",
+        "west": "false"
+      },
+      "apply": {
+        "model": "mechanical_drive:block/angle_gear/angle_gear_encased_panel_west_casing"
+      }
+    },
+    {
+      "when": {
+        "encased": "true",
+        "east": "true"
+      },
+      "apply": {
+        "model": "mechanical_drive:block/angle_gear/angle_gear_encased_panel_east_gearbox"
+      }
+    },
+    {
+      "when": {
+        "encased": "true",
+        "east": "false"
+      },
+      "apply": {
+        "model": "mechanical_drive:block/angle_gear/angle_gear_encased_panel_east_casing"
+      }
+    },
+    {
+      "when": {
+        "encased": "true",
+        "down": "true"
+      },
+      "apply": {
+        "model": "mechanical_drive:block/angle_gear/angle_gear_encased_panel_down_gearbox"
+      }
+    },
+    {
+      "when": {
+        "encased": "true",
+        "down": "false"
+      },
+      "apply": {
+        "model": "mechanical_drive:block/angle_gear/angle_gear_encased_panel_down_casing"
+      }
+    },
+    {
+      "when": {
+        "encased": "true",
+        "up": "true"
+      },
+      "apply": {
+        "model": "mechanical_drive:block/angle_gear/angle_gear_encased_panel_up_gearbox"
+      }
+    },
+    {
+      "when": {
+        "encased": "true",
+        "up": "false"
+      },
+      "apply": {
+        "model": "mechanical_drive:block/angle_gear/angle_gear_encased_panel_up_casing"
+      }
+    }
+  ]
+}

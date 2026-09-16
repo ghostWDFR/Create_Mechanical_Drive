@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "mechanical_drive:item/torsion_mount"
+  }
+}

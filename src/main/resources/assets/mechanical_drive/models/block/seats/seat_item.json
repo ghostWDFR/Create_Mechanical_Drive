@@ -1,0 +1,11 @@
+{
+  "loader": "neoforge:composite",
+  "children": {
+    "base": {
+      "parent": "mechanical_drive:block/seats/seat_base"
+    },
+    "rear": {
+      "parent": "mechanical_drive:block/seats/seat_rear"
+    }
+  }
+}

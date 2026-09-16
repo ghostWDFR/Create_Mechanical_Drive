@@ -1,0 +1,59 @@
+{
+  "multipart": [
+    {
+      "when": {
+        "frame_only": "false"
+      },
+      "apply": {
+        "model": "mechanical_drive:block/tank_transmission/tank_transmission_frame"
+      }
+    },
+    {
+      "when": {
+        "frame_only": "true"
+      },
+      "apply": {
+        "model": "mechanical_drive:block/tank_transmission/tank_transmission_frame_only"
+      }
+    },
+    {
+      "when": {
+        "axis": "x",
+        "facing": "east"
+      },
+      "apply": {
+        "model": "mechanical_drive:block/tank_transmission/tank_transmission_distributor_inner",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "axis": "x",
+        "facing": "west"
+      },
+      "apply": {
+        "model": "mechanical_drive:block/tank_transmission/tank_transmission_distributor_inner",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "axis": "z",
+        "facing": "north"
+      },
+      "apply": {
+        "model": "mechanical_drive:block/tank_transmission/tank_transmission_distributor_inner"
+      }
+    },
+    {
+      "when": {
+        "axis": "z",
+        "facing": "south"
+      },
+      "apply": {
+        "model": "mechanical_drive:block/tank_transmission/tank_transmission_distributor_inner",
+        "y": 180
+      }
+    }
+  ]
+}

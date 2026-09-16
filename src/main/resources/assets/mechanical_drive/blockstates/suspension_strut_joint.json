@@ -1,0 +1,9 @@
+{
+  "multipart": [
+    {
+      "apply": {
+        "model": "mechanical_drive:block/suspension_strut/suspension_strut_joint"
+      }
+    }
+  ]
+}

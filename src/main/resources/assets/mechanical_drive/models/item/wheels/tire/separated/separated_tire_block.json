@@ -1,0 +1,11 @@
+{
+  "loader": "neoforge:composite",
+  "children": {
+    "wheel": {
+      "parent": "mechanical_drive:item/wheels/tire/separated/separated_tire_wheel"
+    },
+    "shaft": {
+      "parent": "create:block/shaft"
+    }
+  }
+}

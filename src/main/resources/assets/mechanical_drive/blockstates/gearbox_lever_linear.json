@@ -1,0 +1,24 @@
+{
+  "variants": {
+    "facing=east,position=first": { "model": "mechanical_drive:block/gearbox/gearbox_lever_linear_plate", "y": 90 },
+    "facing=east,position=neutral": { "model": "mechanical_drive:block/gearbox/gearbox_lever_linear_plate", "y": 90 },
+    "facing=east,position=reverse": { "model": "mechanical_drive:block/gearbox/gearbox_lever_linear_plate", "y": 90 },
+    "facing=east,position=second": { "model": "mechanical_drive:block/gearbox/gearbox_lever_linear_plate", "y": 90 },
+    "facing=east,position=third": { "model": "mechanical_drive:block/gearbox/gearbox_lever_linear_plate", "y": 90 },
+    "facing=north,position=first": { "model": "mechanical_drive:block/gearbox/gearbox_lever_linear_plate" },
+    "facing=north,position=neutral": { "model": "mechanical_drive:block/gearbox/gearbox_lever_linear_plate" },
+    "facing=north,position=reverse": { "model": "mechanical_drive:block/gearbox/gearbox_lever_linear_plate" },
+    "facing=north,position=second": { "model": "mechanical_drive:block/gearbox/gearbox_lever_linear_plate" },
+    "facing=north,position=third": { "model": "mechanical_drive:block/gearbox/gearbox_lever_linear_plate" },
+    "facing=south,position=first": { "model": "mechanical_drive:block/gearbox/gearbox_lever_linear_plate", "y": 180 },
+    "facing=south,position=neutral": { "model": "mechanical_drive:block/gearbox/gearbox_lever_linear_plate", "y": 180 },
+    "facing=south,position=reverse": { "model": "mechanical_drive:block/gearbox/gearbox_lever_linear_plate", "y": 180 },
+    "facing=south,position=second": { "model": "mechanical_drive:block/gearbox/gearbox_lever_linear_plate", "y": 180 },
+    "facing=south,position=third": { "model": "mechanical_drive:block/gearbox/gearbox_lever_linear_plate", "y": 180 },
+    "facing=west,position=first": { "model": "mechanical_drive:block/gearbox/gearbox_lever_linear_plate", "y": 270 },
+    "facing=west,position=neutral": { "model": "mechanical_drive:block/gearbox/gearbox_lever_linear_plate", "y": 270 },
+    "facing=west,position=reverse": { "model": "mechanical_drive:block/gearbox/gearbox_lever_linear_plate", "y": 270 },
+    "facing=west,position=second": { "model": "mechanical_drive:block/gearbox/gearbox_lever_linear_plate", "y": 270 },
+    "facing=west,position=third": { "model": "mechanical_drive:block/gearbox/gearbox_lever_linear_plate", "y": 270 }
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "parent": "block/block",
+  "textures": {
+    "particle": "create:block/andesite_casing",
+    "panel": "create:block/gearbox"
+  },
+  "elements": [
+    {
+      "from": [
+        14,
+        2,
+        2
+      ],
+      "to": [
+        15,
+        14,
+        14
+      ],
+      "faces": {
+        "east": {
+          "uv": [
+            2,
+            2,
+            14,
+            14
+          ],
+          "texture": "#panel"
+        }
+      }
+    }
+  ]
+}

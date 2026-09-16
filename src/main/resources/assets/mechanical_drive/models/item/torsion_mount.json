@@ -1,0 +1,47 @@
+{
+  "loader": "neoforge:composite",
+  "children": {
+    "mount": {
+      "parent": "mechanical_drive:block/tracks/mounts/torsion_mount/torsion_mount"
+    },
+    "arm": {
+      "parent": "mechanical_drive:block/tracks/mounts/torsion_mount/torsion_bar_empty"
+    }
+  },
+  "display": {
+    "gui": {
+      "rotation": [120, -180, -45],
+      "translation": [-4.75, 0.5, 0],
+      "scale": [0.7, 0.7, 0.7]
+    },
+    "firstperson_righthand": {
+      "rotation": [45, -180, -40],
+      "translation": [-1, 5, 1.75],
+      "scale": [0.4, 0.4, 0.4]
+    },
+    "firstperson_lefthand": {
+      "rotation": [45, -180, -40],
+      "translation": [-1, 5, 1.75],
+      "scale": [0.4, 0.4, 0.4]
+    },
+    "thirdperson_righthand": {
+      "rotation": [55, -180, 0],
+      "translation": [0, 3.75, 0.75],
+      "scale": [0.4, 0.4, 0.4]
+    },
+    "thirdperson_lefthand": {
+      "rotation": [55, -180, 0],
+      "translation": [0, 3.75, 0.75],
+      "scale": [0.4, 0.4, 0.4]
+    },
+    "ground": {
+      "translation": [0, 3, 0],
+      "scale": [0.5, 0.5, 0.5]
+    },
+    "fixed": {
+      "rotation": [-90, 0, 0],
+      "translation": [0, 0, -7],
+      "scale": [1, 1, 1]
+    }
+  }
+}

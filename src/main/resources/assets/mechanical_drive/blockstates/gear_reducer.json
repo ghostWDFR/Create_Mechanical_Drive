@@ -1,0 +1,59 @@
+{
+  "variants": {
+    "axis=y,facing=up,powered=false": {
+      "model": "mechanical_drive:block/gear_reducer/gear_reducer"
+    },
+    "axis=y,facing=up,powered=true": {
+      "model": "mechanical_drive:block/gear_reducer/gear_reducer_on"
+    },
+
+    "axis=y,facing=down,powered=false": {
+      "model": "mechanical_drive:block/gear_reducer/gear_reducer",
+      "x": 180
+    },
+    "axis=y,facing=down,powered=true": {
+      "model": "mechanical_drive:block/gear_reducer/gear_reducer_on",
+      "x": 180
+    },
+
+    "axis=z,facing=north,powered=false": {
+      "model": "mechanical_drive:block/gear_reducer/gear_reducer",
+      "x": 90
+    },
+    "axis=z,facing=north,powered=true": {
+      "model": "mechanical_drive:block/gear_reducer/gear_reducer_on",
+      "x": 90
+    },
+
+    "axis=z,facing=south,powered=false": {
+      "model": "mechanical_drive:block/gear_reducer/gear_reducer",
+      "x": 270
+    },
+    "axis=z,facing=south,powered=true": {
+      "model": "mechanical_drive:block/gear_reducer/gear_reducer_on",
+      "x": 270
+    },
+
+    "axis=x,facing=east,powered=false": {
+      "model": "mechanical_drive:block/gear_reducer/gear_reducer",
+      "x": 90,
+      "y": 90
+    },
+    "axis=x,facing=east,powered=true": {
+      "model": "mechanical_drive:block/gear_reducer/gear_reducer_on",
+      "x": 90,
+      "y": 90
+    },
+
+    "axis=x,facing=west,powered=false": {
+      "model": "mechanical_drive:block/gear_reducer/gear_reducer",
+      "x": 90,
+      "y": 270
+    },
+    "axis=x,facing=west,powered=true": {
+      "model": "mechanical_drive:block/gear_reducer/gear_reducer_on",
+      "x": 90,
+      "y": 270
+    }
+  }
+}

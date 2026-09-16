@@ -1,0 +1,6 @@
+{
+  "parent": "mechanical_drive:block/gear_reducer/gear_reducer",
+  "textures": {
+    "2": "mechanical_drive:block/gear_reducer/gear_reducer_on"
+  }
+}

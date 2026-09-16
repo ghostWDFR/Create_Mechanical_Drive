@@ -1,0 +1,11 @@
+{
+  "loader": "neoforge:composite",
+  "children": {
+    "body": {
+      "parent": "mechanical_drive:block/gearbox/car_gearbox_speed"
+    },
+    "shaft": {
+      "parent": "mechanical_drive:block/gearbox/gearbox_item_shaft"
+    }
+  }
+}

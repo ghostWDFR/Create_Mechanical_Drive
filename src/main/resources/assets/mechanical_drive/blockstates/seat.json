@@ -1,0 +1,274 @@
+{
+  "variants": {
+    "back_position=backward,color=black,facing=east": {
+      "model": "mechanical_drive:block/seats/seat_base",
+      "y": 90
+    },
+    "back_position=backward,color=black,facing=north": {
+      "model": "mechanical_drive:block/seats/seat_base",
+      "y": 180
+    },
+    "back_position=backward,color=black,facing=south": {
+      "model": "mechanical_drive:block/seats/seat_base"
+    },
+    "back_position=backward,color=black,facing=west": {
+      "model": "mechanical_drive:block/seats/seat_base",
+      "y": 270
+    },
+    "back_position=backward,color=blue,facing=east": {
+      "model": "mechanical_drive:block/seats/seat_base_blue",
+      "y": 90
+    },
+    "back_position=backward,color=blue,facing=north": {
+      "model": "mechanical_drive:block/seats/seat_base_blue",
+      "y": 180
+    },
+    "back_position=backward,color=blue,facing=south": {
+      "model": "mechanical_drive:block/seats/seat_base_blue"
+    },
+    "back_position=backward,color=blue,facing=west": {
+      "model": "mechanical_drive:block/seats/seat_base_blue",
+      "y": 270
+    },
+    "back_position=backward,color=gray,facing=east": {
+      "model": "mechanical_drive:block/seats/seat_base_gray",
+      "y": 90
+    },
+    "back_position=backward,color=gray,facing=north": {
+      "model": "mechanical_drive:block/seats/seat_base_gray",
+      "y": 180
+    },
+    "back_position=backward,color=gray,facing=south": {
+      "model": "mechanical_drive:block/seats/seat_base_gray"
+    },
+    "back_position=backward,color=gray,facing=west": {
+      "model": "mechanical_drive:block/seats/seat_base_gray",
+      "y": 270
+    },
+    "back_position=backward,color=green,facing=east": {
+      "model": "mechanical_drive:block/seats/seat_base_green",
+      "y": 90
+    },
+    "back_position=backward,color=green,facing=north": {
+      "model": "mechanical_drive:block/seats/seat_base_green",
+      "y": 180
+    },
+    "back_position=backward,color=green,facing=south": {
+      "model": "mechanical_drive:block/seats/seat_base_green"
+    },
+    "back_position=backward,color=green,facing=west": {
+      "model": "mechanical_drive:block/seats/seat_base_green",
+      "y": 270
+    },
+    "back_position=backward,color=red,facing=east": {
+      "model": "mechanical_drive:block/seats/seat_base_red",
+      "y": 90
+    },
+    "back_position=backward,color=red,facing=north": {
+      "model": "mechanical_drive:block/seats/seat_base_red",
+      "y": 180
+    },
+    "back_position=backward,color=red,facing=south": {
+      "model": "mechanical_drive:block/seats/seat_base_red"
+    },
+    "back_position=backward,color=red,facing=west": {
+      "model": "mechanical_drive:block/seats/seat_base_red",
+      "y": 270
+    },
+    "back_position=backward,color=yellow,facing=east": {
+      "model": "mechanical_drive:block/seats/seat_base_yellow",
+      "y": 90
+    },
+    "back_position=backward,color=yellow,facing=north": {
+      "model": "mechanical_drive:block/seats/seat_base_yellow",
+      "y": 180
+    },
+    "back_position=backward,color=yellow,facing=south": {
+      "model": "mechanical_drive:block/seats/seat_base_yellow"
+    },
+    "back_position=backward,color=yellow,facing=west": {
+      "model": "mechanical_drive:block/seats/seat_base_yellow",
+      "y": 270
+    },
+    "back_position=forward,color=black,facing=east": {
+      "model": "mechanical_drive:block/seats/seat_base",
+      "y": 90
+    },
+    "back_position=forward,color=black,facing=north": {
+      "model": "mechanical_drive:block/seats/seat_base",
+      "y": 180
+    },
+    "back_position=forward,color=black,facing=south": {
+      "model": "mechanical_drive:block/seats/seat_base"
+    },
+    "back_position=forward,color=black,facing=west": {
+      "model": "mechanical_drive:block/seats/seat_base",
+      "y": 270
+    },
+    "back_position=forward,color=blue,facing=east": {
+      "model": "mechanical_drive:block/seats/seat_base_blue",
+      "y": 90
+    },
+    "back_position=forward,color=blue,facing=north": {
+      "model": "mechanical_drive:block/seats/seat_base_blue",
+      "y": 180
+    },
+    "back_position=forward,color=blue,facing=south": {
+      "model": "mechanical_drive:block/seats/seat_base_blue"
+    },
+    "back_position=forward,color=blue,facing=west": {
+      "model": "mechanical_drive:block/seats/seat_base_blue",
+      "y": 270
+    },
+    "back_position=forward,color=gray,facing=east": {
+      "model": "mechanical_drive:block/seats/seat_base_gray",
+      "y": 90
+    },
+    "back_position=forward,color=gray,facing=north": {
+      "model": "mechanical_drive:block/seats/seat_base_gray",
+      "y": 180
+    },
+    "back_position=forward,color=gray,facing=south": {
+      "model": "mechanical_drive:block/seats/seat_base_gray"
+    },
+    "back_position=forward,color=gray,facing=west": {
+      "model": "mechanical_drive:block/seats/seat_base_gray",
+      "y": 270
+    },
+    "back_position=forward,color=green,facing=east": {
+      "model": "mechanical_drive:block/seats/seat_base_green",
+      "y": 90
+    },
+    "back_position=forward,color=green,facing=north": {
+      "model": "mechanical_drive:block/seats/seat_base_green",
+      "y": 180
+    },
+    "back_position=forward,color=green,facing=south": {
+      "model": "mechanical_drive:block/seats/seat_base_green"
+    },
+    "back_position=forward,color=green,facing=west": {
+      "model": "mechanical_drive:block/seats/seat_base_green",
+      "y": 270
+    },
+    "back_position=forward,color=red,facing=east": {
+      "model": "mechanical_drive:block/seats/seat_base_red",
+      "y": 90
+    },
+    "back_position=forward,color=red,facing=north": {
+      "model": "mechanical_drive:block/seats/seat_base_red",
+      "y": 180
+    },
+    "back_position=forward,color=red,facing=south": {
+      "model": "mechanical_drive:block/seats/seat_base_red"
+    },
+    "back_position=forward,color=red,facing=west": {
+      "model": "mechanical_drive:block/seats/seat_base_red",
+      "y": 270
+    },
+    "back_position=forward,color=yellow,facing=east": {
+      "model": "mechanical_drive:block/seats/seat_base_yellow",
+      "y": 90
+    },
+    "back_position=forward,color=yellow,facing=north": {
+      "model": "mechanical_drive:block/seats/seat_base_yellow",
+      "y": 180
+    },
+    "back_position=forward,color=yellow,facing=south": {
+      "model": "mechanical_drive:block/seats/seat_base_yellow"
+    },
+    "back_position=forward,color=yellow,facing=west": {
+      "model": "mechanical_drive:block/seats/seat_base_yellow",
+      "y": 270
+    },
+    "back_position=upright,color=black,facing=east": {
+      "model": "mechanical_drive:block/seats/seat_base",
+      "y": 90
+    },
+    "back_position=upright,color=black,facing=north": {
+      "model": "mechanical_drive:block/seats/seat_base",
+      "y": 180
+    },
+    "back_position=upright,color=black,facing=south": {
+      "model": "mechanical_drive:block/seats/seat_base"
+    },
+    "back_position=upright,color=black,facing=west": {
+      "model": "mechanical_drive:block/seats/seat_base",
+      "y": 270
+    },
+    "back_position=upright,color=blue,facing=east": {
+      "model": "mechanical_drive:block/seats/seat_base_blue",
+      "y": 90
+    },
+    "back_position=upright,color=blue,facing=north": {
+      "model": "mechanical_drive:block/seats/seat_base_blue",
+      "y": 180
+    },
+    "back_position=upright,color=blue,facing=south": {
+      "model": "mechanical_drive:block/seats/seat_base_blue"
+    },
+    "back_position=upright,color=blue,facing=west": {
+      "model": "mechanical_drive:block/seats/seat_base_blue",
+      "y": 270
+    },
+    "back_position=upright,color=gray,facing=east": {
+      "model": "mechanical_drive:block/seats/seat_base_gray",
+      "y": 90
+    },
+    "back_position=upright,color=gray,facing=north": {
+      "model": "mechanical_drive:block/seats/seat_base_gray",
+      "y": 180
+    },
+    "back_position=upright,color=gray,facing=south": {
+      "model": "mechanical_drive:block/seats/seat_base_gray"
+    },
+    "back_position=upright,color=gray,facing=west": {
+      "model": "mechanical_drive:block/seats/seat_base_gray",
+      "y": 270
+    },
+    "back_position=upright,color=green,facing=east": {
+      "model": "mechanical_drive:block/seats/seat_base_green",
+      "y": 90
+    },
+    "back_position=upright,color=green,facing=north": {
+      "model": "mechanical_drive:block/seats/seat_base_green",
+      "y": 180
+    },
+    "back_position=upright,color=green,facing=south": {
+      "model": "mechanical_drive:block/seats/seat_base_green"
+    },
+    "back_position=upright,color=green,facing=west": {
+      "model": "mechanical_drive:block/seats/seat_base_green",
+      "y": 270
+    },
+    "back_position=upright,color=red,facing=east": {
+      "model": "mechanical_drive:block/seats/seat_base_red",
+      "y": 90
+    },
+    "back_position=upright,color=red,facing=north": {
+      "model": "mechanical_drive:block/seats/seat_base_red",
+      "y": 180
+    },
+    "back_position=upright,color=red,facing=south": {
+      "model": "mechanical_drive:block/seats/seat_base_red"
+    },
+    "back_position=upright,color=red,facing=west": {
+      "model": "mechanical_drive:block/seats/seat_base_red",
+      "y": 270
+    },
+    "back_position=upright,color=yellow,facing=east": {
+      "model": "mechanical_drive:block/seats/seat_base_yellow",
+      "y": 90
+    },
+    "back_position=upright,color=yellow,facing=north": {
+      "model": "mechanical_drive:block/seats/seat_base_yellow",
+      "y": 180
+    },
+    "back_position=upright,color=yellow,facing=south": {
+      "model": "mechanical_drive:block/seats/seat_base_yellow"
+    },
+    "back_position=upright,color=yellow,facing=west": {
+      "model": "mechanical_drive:block/seats/seat_base_yellow",
+      "y": 270
+    }
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "variants": {
+    "mount=up": {
+      "model": "mechanical_drive:block/mechanical_jack/mechanical_jack_empty"
+    },
+    "mount=down": {
+      "model": "mechanical_drive:block/mechanical_jack/mechanical_jack_empty"
+    },
+    "mount=north": {
+      "model": "mechanical_drive:block/mechanical_jack/mechanical_jack_empty"
+    },
+    "mount=south": {
+      "model": "mechanical_drive:block/mechanical_jack/mechanical_jack_empty"
+    },
+    "mount=east": {
+      "model": "mechanical_drive:block/mechanical_jack/mechanical_jack_empty"
+    },
+    "mount=west": {
+      "model": "mechanical_drive:block/mechanical_jack/mechanical_jack_empty"
+    }
+  }
+}

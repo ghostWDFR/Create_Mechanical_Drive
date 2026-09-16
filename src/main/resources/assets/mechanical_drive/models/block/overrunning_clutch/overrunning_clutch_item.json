@@ -1,0 +1,17 @@
+{
+  "loader": "neoforge:composite",
+  "children": {
+    "body": {
+      "parent": "mechanical_drive:block/overrunning_clutch/overrunning_clutch"
+    },
+    "shaft": {
+      "parent": "mechanical_drive:block/overrunning_clutch/overrunning_clutch_item_shaft"
+    },
+    "inner_middle": {
+      "parent": "mechanical_drive:block/overrunning_clutch/overrunning_clutch_inner_middle"
+    },
+    "inner_sides": {
+      "parent": "mechanical_drive:block/overrunning_clutch/overrunning_clutch_inner_sides"
+    }
+  }
+}

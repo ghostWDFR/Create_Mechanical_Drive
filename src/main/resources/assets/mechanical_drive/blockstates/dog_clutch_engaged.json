@@ -1,0 +1,29 @@
+{
+  "variants": {
+    "facing=up": {
+      "model": "mechanical_drive:block/dog_clutch/dog_clutch"
+    },
+    "facing=down": {
+      "model": "mechanical_drive:block/dog_clutch/dog_clutch",
+      "x": 180
+    },
+    "facing=north": {
+      "model": "mechanical_drive:block/dog_clutch/dog_clutch",
+      "x": 90
+    },
+    "facing=south": {
+      "model": "mechanical_drive:block/dog_clutch/dog_clutch",
+      "x": 270
+    },
+    "facing=east": {
+      "model": "mechanical_drive:block/dog_clutch/dog_clutch",
+      "x": 90,
+      "y": 90
+    },
+    "facing=west": {
+      "model": "mechanical_drive:block/dog_clutch/dog_clutch",
+      "x": 90,
+      "y": 270
+    }
+  }
+}

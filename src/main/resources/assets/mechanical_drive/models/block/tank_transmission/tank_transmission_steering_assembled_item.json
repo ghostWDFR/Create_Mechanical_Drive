@@ -1,0 +1,14 @@
+{
+  "loader": "neoforge:composite",
+  "children": {
+    "body": {
+      "parent": "mechanical_drive:block/tank_transmission/tank_transmission_steering_assembled"
+    },
+    "shaft_x": {
+      "parent": "mechanical_drive:block/tank_transmission/tank_transmission_steering_item_shaft_x"
+    },
+    "shaft_z": {
+      "parent": "mechanical_drive:block/tank_transmission/tank_transmission_steering_item_shaft_z"
+    }
+  }
+}

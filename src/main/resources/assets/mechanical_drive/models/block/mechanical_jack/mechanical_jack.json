@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "mechanical_drive:block/mechanical_jack/mechanical_jack_empty"
+    },
+    "facing=east": {
+      "model": "mechanical_drive:block/mechanical_jack/mechanical_jack_empty"
+    },
+    "facing=south": {
+      "model": "mechanical_drive:block/mechanical_jack/mechanical_jack_empty"
+    },
+    "facing=west": {
+      "model": "mechanical_drive:block/mechanical_jack/mechanical_jack_empty"
+    }
+  }
+}

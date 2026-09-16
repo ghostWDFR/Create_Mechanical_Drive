@@ -1,0 +1,102 @@
+{
+  "variants": {
+    "axis=x,connected_negative=false,connected_positive=false,encased=false": {
+      "model": "mechanical_drive:block/worm_gear/worm_gear_small",
+      "x": 90,
+      "y": 90
+    },
+    "axis=x,connected_negative=true,connected_positive=false,encased=false": {
+      "model": "mechanical_drive:block/worm_gear/worm_gear_small_b",
+      "x": 90,
+      "y": 90
+    },
+    "axis=x,connected_negative=false,connected_positive=true,encased=false": {
+      "model": "mechanical_drive:block/worm_gear/worm_gear_small_t",
+      "x": 90,
+      "y": 90
+    },
+    "axis=x,connected_negative=true,connected_positive=true,encased=false": {
+      "model": "mechanical_drive:block/worm_gear/worm_gear_small_m",
+      "x": 90,
+      "y": 90
+    },
+    "axis=x,connected_negative=false,connected_positive=false,encased=true": {
+      "model": "mechanical_drive:block/worm_gear/worm_gear_small_casing",
+      "x": 90,
+      "y": 90
+    },
+    "axis=x,connected_negative=true,connected_positive=false,encased=true": {
+      "model": "mechanical_drive:block/worm_gear/worm_gear_small_casing",
+      "x": 90,
+      "y": 90
+    },
+    "axis=x,connected_negative=false,connected_positive=true,encased=true": {
+      "model": "mechanical_drive:block/worm_gear/worm_gear_small_casing",
+      "x": 90,
+      "y": 90
+    },
+    "axis=x,connected_negative=true,connected_positive=true,encased=true": {
+      "model": "mechanical_drive:block/worm_gear/worm_gear_small_casing",
+      "x": 90,
+      "y": 90
+    },
+
+    "axis=y,connected_negative=false,connected_positive=false,encased=false": {
+      "model": "mechanical_drive:block/worm_gear/worm_gear_small"
+    },
+    "axis=y,connected_negative=true,connected_positive=false,encased=false": {
+      "model": "mechanical_drive:block/worm_gear/worm_gear_small_b"
+    },
+    "axis=y,connected_negative=false,connected_positive=true,encased=false": {
+      "model": "mechanical_drive:block/worm_gear/worm_gear_small_t"
+    },
+    "axis=y,connected_negative=true,connected_positive=true,encased=false": {
+      "model": "mechanical_drive:block/worm_gear/worm_gear_small_m"
+    },
+    "axis=y,connected_negative=false,connected_positive=false,encased=true": {
+      "model": "mechanical_drive:block/worm_gear/worm_gear_small_casing"
+    },
+    "axis=y,connected_negative=true,connected_positive=false,encased=true": {
+      "model": "mechanical_drive:block/worm_gear/worm_gear_small_casing"
+    },
+    "axis=y,connected_negative=false,connected_positive=true,encased=true": {
+      "model": "mechanical_drive:block/worm_gear/worm_gear_small_casing"
+    },
+    "axis=y,connected_negative=true,connected_positive=true,encased=true": {
+      "model": "mechanical_drive:block/worm_gear/worm_gear_small_casing"
+    },
+
+    "axis=z,connected_negative=false,connected_positive=false,encased=false": {
+      "model": "mechanical_drive:block/worm_gear/worm_gear_small",
+      "x": 90
+    },
+    "axis=z,connected_negative=true,connected_positive=false,encased=false": {
+      "model": "mechanical_drive:block/worm_gear/worm_gear_small_t",
+      "x": 90
+    },
+    "axis=z,connected_negative=false,connected_positive=true,encased=false": {
+      "model": "mechanical_drive:block/worm_gear/worm_gear_small_b",
+      "x": 90
+    },
+    "axis=z,connected_negative=true,connected_positive=true,encased=false": {
+      "model": "mechanical_drive:block/worm_gear/worm_gear_small_m",
+      "x": 90
+    },
+    "axis=z,connected_negative=false,connected_positive=false,encased=true": {
+      "model": "mechanical_drive:block/worm_gear/worm_gear_small_casing",
+      "x": 90
+    },
+    "axis=z,connected_negative=true,connected_positive=false,encased=true": {
+      "model": "mechanical_drive:block/worm_gear/worm_gear_small_casing",
+      "x": 90
+    },
+    "axis=z,connected_negative=false,connected_positive=true,encased=true": {
+      "model": "mechanical_drive:block/worm_gear/worm_gear_small_casing",
+      "x": 90
+    },
+    "axis=z,connected_negative=true,connected_positive=true,encased=true": {
+      "model": "mechanical_drive:block/worm_gear/worm_gear_small_casing",
+      "x": 90
+    }
+  }
+}

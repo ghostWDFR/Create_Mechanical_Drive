@@ -1,0 +1,32 @@
+{
+  "required": true,
+  "package": "dev.createmechanicaldrive.mixin",
+  "compatibilityLevel": "JAVA_21",
+  "minVersion": "0.8",
+  "mixins": [
+    "CompactStrutSupportShapeMixin",
+    "CreativeModeTabMixin",
+    "DirectionalShaftHalvesBlockEntityMixin",
+    "KineticBlockEntityMixin",
+    "KineticNetworkMixin",
+    "MechanicalDriveWheelMountOffsetMixin",
+    "OffroadWheelMountBlockMarkerMixin",
+    "OffroadWheelMountInventoryMarkerMixin",
+    "OffroadWheelMountMarkerMixin",
+    "RotationPropagatorMixin",
+    "WheelMountSuspensionTuningMixin",
+    "compat.SableSubLevelHeatMapMixin",
+    "compat.TracksSuspensionKeyItemMixin"
+  ],
+  "client": [
+    "client.AbstractContainerScreenAccessor",
+    "client.CompactStrutJointPickMixin",
+    "client.CreativeModeInventoryScreenMixin",
+    "client.ItemPickerMenuMixin",
+    "client.OffroadWheelMountRendererOffsetMixin",
+    "client.PonderTooltipHandlerMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

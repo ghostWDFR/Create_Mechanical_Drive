@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "mechanical_drive:block/wheel_mounts/double_wheel_mount"
+    },
+    "facing=east": {
+      "model": "mechanical_drive:block/wheel_mounts/double_wheel_mount",
+      "y": 90
+    },
+    "facing=south": {
+      "model": "mechanical_drive:block/wheel_mounts/double_wheel_mount",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "mechanical_drive:block/wheel_mounts/double_wheel_mount",
+      "y": 270
+    }
+  }
+}

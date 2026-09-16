@@ -1,0 +1,22 @@
+{
+  "variants": {
+    "axis=x,waterlogged=false": {
+      "model": "mechanical_drive:block/stirling_engine/stirling_engine_flywheel_particle"
+    },
+    "axis=x,waterlogged=true": {
+      "model": "mechanical_drive:block/stirling_engine/stirling_engine_flywheel_particle"
+    },
+    "axis=y,waterlogged=false": {
+      "model": "mechanical_drive:block/stirling_engine/stirling_engine_flywheel_particle"
+    },
+    "axis=y,waterlogged=true": {
+      "model": "mechanical_drive:block/stirling_engine/stirling_engine_flywheel_particle"
+    },
+    "axis=z,waterlogged=false": {
+      "model": "mechanical_drive:block/stirling_engine/stirling_engine_flywheel_particle"
+    },
+    "axis=z,waterlogged=true": {
+      "model": "mechanical_drive:block/stirling_engine/stirling_engine_flywheel_particle"
+    }
+  }
+}

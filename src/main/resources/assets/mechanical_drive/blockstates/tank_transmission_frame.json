@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "frame_only=false": {
+      "model": "mechanical_drive:block/tank_transmission/tank_transmission_frame"
+    },
+    "frame_only=true": {
+      "model": "mechanical_drive:block/tank_transmission/tank_transmission_frame_only"
+    }
+  }
+}

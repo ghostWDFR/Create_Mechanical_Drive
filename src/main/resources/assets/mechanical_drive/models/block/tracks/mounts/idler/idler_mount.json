@@ -1,0 +1,325 @@
+{
+	"format_version": "1.9.0",
+	"credit": "Made with Blockbench",
+	"texture_size": [
+		32,
+		32
+	],
+	"textures": {
+		"0": "mechanical_drive:block/tracks/mounts/sprocket/sprocket_mount",
+		"particle": "mechanical_drive:block/tracks/mounts/sprocket/sprocket_mount"
+	},
+	"elements": [
+		{
+			"from": [
+				15,
+				0,
+				5
+			],
+			"to": [
+				16,
+				1,
+				11
+			],
+			"rotation": {
+				"angle": 0,
+				"axis": "y",
+				"origin": [
+					8,
+					8,
+					8
+				]
+			},
+			"faces": {
+				"north": {
+					"uv": [
+						0,
+						0.5,
+						0.5,
+						1
+					],
+					"texture": "#0"
+				},
+				"east": {
+					"uv": [
+						5.5,
+						0.5,
+						6,
+						6.5
+					],
+					"rotation": 90,
+					"texture": "#0"
+				},
+				"south": {
+					"uv": [
+						0,
+						6,
+						0.5,
+						6.5
+					],
+					"texture": "#0"
+				},
+				"up": {
+					"uv": [
+						0,
+						0.5,
+						0.5,
+						6.5
+					],
+					"texture": "#0"
+				},
+				"down": {
+					"uv": [
+						0,
+						7.5,
+						0.5,
+						13.5
+					],
+					"texture": "#0"
+				}
+			}
+		},
+		{
+			"from": [
+				1,
+				0,
+				4
+			],
+			"to": [
+				15,
+				1,
+				12
+			],
+			"rotation": {
+				"angle": 0,
+				"axis": "y",
+				"origin": [
+					8,
+					8,
+					8
+				]
+			},
+			"faces": {
+				"north": {
+					"uv": [
+						6.5,
+						10.5,
+						13.5,
+						11
+					],
+					"texture": "#0"
+				},
+				"east": {
+					"uv": [
+						13.5,
+						6.5,
+						14,
+						10.5
+					],
+					"rotation": 90,
+					"texture": "#0"
+				},
+				"south": {
+					"uv": [
+						6.5,
+						6,
+						13.5,
+						6.5
+					],
+					"texture": "#0"
+				},
+				"west": {
+					"uv": [
+						6,
+						6.5,
+						6.5,
+						10.5
+					],
+					"rotation": 90,
+					"texture": "#0"
+				},
+				"up": {
+					"uv": [
+						6.5,
+						6.5,
+						13.5,
+						10.5
+					],
+					"texture": "#0"
+				},
+				"down": {
+					"uv": [
+						6.5,
+						6.5,
+						13.5,
+						10.5
+					],
+					"texture": "#0"
+				}
+			}
+		},
+		{
+			"from": [
+				0,
+				0,
+				5
+			],
+			"to": [
+				1,
+				1,
+				11
+			],
+			"rotation": {
+				"angle": 0,
+				"axis": "y",
+				"origin": [
+					6,
+					8,
+					8
+				]
+			},
+			"faces": {
+				"north": {
+					"uv": [
+						5.5,
+						0.5,
+						6,
+						1
+					],
+					"texture": "#0"
+				},
+				"south": {
+					"uv": [
+						5.5,
+						6,
+						6,
+						6.5
+					],
+					"texture": "#0"
+				},
+				"west": {
+					"uv": [
+						0,
+						0.5,
+						0.5,
+						6.5
+					],
+					"rotation": 90,
+					"texture": "#0"
+				},
+				"up": {
+					"uv": [
+						5.5,
+						0.5,
+						6,
+						6.5
+					],
+					"texture": "#0"
+				},
+				"down": {
+					"uv": [
+						5.5,
+						7.5,
+						6,
+						13.5
+					],
+					"texture": "#0"
+				}
+			}
+		}
+	],
+	"display": {
+		"thirdperson_righthand": {
+			"rotation": [
+				55,
+				-180,
+				0
+			],
+			"translation": [
+				0,
+				3.75,
+				0.75
+			],
+			"scale": [
+				0.4,
+				0.4,
+				0.4
+			]
+		},
+		"firstperson_righthand": {
+			"rotation": [
+				45,
+				-180,
+				-40
+			],
+			"translation": [
+				-1,
+				5,
+				1.75
+			],
+			"scale": [
+				0.4,
+				0.4,
+				0.4
+			]
+		},
+		"ground": {
+			"translation": [
+				0,
+				3,
+				0
+			],
+			"scale": [
+				0.5,
+				0.5,
+				0.5
+			]
+		},
+		"gui": {
+			"rotation": [
+				120,
+				-180,
+				45
+			],
+			"translation": [
+				4.75,
+				-2.25,
+				0
+			],
+			"scale": [
+				0.9,
+				0.9,
+				0.9
+			]
+		},
+		"fixed": {
+			"rotation": [
+				-90,
+				0,
+				0
+			],
+			"translation": [
+				0,
+				0,
+				-7
+			]
+		}
+	},
+	"groups": [
+		{
+			"name": "idler_mount",
+			"origin": [
+				10,
+				8,
+				8
+			],
+			"scope": 0,
+			"color": 0,
+			"children": [
+				0,
+				1,
+				2
+			]
+		}
+	]
+}

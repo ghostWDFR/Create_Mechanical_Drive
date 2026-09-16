@@ -1,0 +1,95 @@
+{
+  "parent": "mechanical_drive:item/shaft_marker/shaft_marker_white",
+  "overrides": [
+    {
+      "predicate": {
+        "mechanical_drive:shaft_marker_color": 1.0
+      },
+      "model": "mechanical_drive:item/shaft_marker/shaft_marker_orange"
+    },
+    {
+      "predicate": {
+        "mechanical_drive:shaft_marker_color": 2.0
+      },
+      "model": "mechanical_drive:item/shaft_marker/shaft_marker_magenta"
+    },
+    {
+      "predicate": {
+        "mechanical_drive:shaft_marker_color": 3.0
+      },
+      "model": "mechanical_drive:item/shaft_marker/shaft_marker_light_blue"
+    },
+    {
+      "predicate": {
+        "mechanical_drive:shaft_marker_color": 4.0
+      },
+      "model": "mechanical_drive:item/shaft_marker/shaft_marker_yellow"
+    },
+    {
+      "predicate": {
+        "mechanical_drive:shaft_marker_color": 5.0
+      },
+      "model": "mechanical_drive:item/shaft_marker/shaft_marker_lime"
+    },
+    {
+      "predicate": {
+        "mechanical_drive:shaft_marker_color": 6.0
+      },
+      "model": "mechanical_drive:item/shaft_marker/shaft_marker_pink"
+    },
+    {
+      "predicate": {
+        "mechanical_drive:shaft_marker_color": 7.0
+      },
+      "model": "mechanical_drive:item/shaft_marker/shaft_marker_gray"
+    },
+    {
+      "predicate": {
+        "mechanical_drive:shaft_marker_color": 8.0
+      },
+      "model": "mechanical_drive:item/shaft_marker/shaft_marker_light_gray"
+    },
+    {
+      "predicate": {
+        "mechanical_drive:shaft_marker_color": 9.0
+      },
+      "model": "mechanical_drive:item/shaft_marker/shaft_marker_cyan"
+    },
+    {
+      "predicate": {
+        "mechanical_drive:shaft_marker_color": 10.0
+      },
+      "model": "mechanical_drive:item/shaft_marker/shaft_marker_purple"
+    },
+    {
+      "predicate": {
+        "mechanical_drive:shaft_marker_color": 11.0
+      },
+      "model": "mechanical_drive:item/shaft_marker/shaft_marker_blue"
+    },
+    {
+      "predicate": {
+        "mechanical_drive:shaft_marker_color": 12.0
+      },
+      "model": "mechanical_drive:item/shaft_marker/shaft_marker_brown"
+    },
+    {
+      "predicate": {
+        "mechanical_drive:shaft_marker_color": 13.0
+      },
+      "model": "mechanical_drive:item/shaft_marker/shaft_marker_green"
+    },
+    {
+      "predicate": {
+        "mechanical_drive:shaft_marker_color": 14.0
+      },
+      "model": "mechanical_drive:item/shaft_marker/shaft_marker_red"
+    },
+    {
+      "predicate": {
+        "mechanical_drive:shaft_marker_color": 15.0
+      },
+      "model": "mechanical_drive:item/shaft_marker/shaft_marker_black"
+    }
+  ]
+}

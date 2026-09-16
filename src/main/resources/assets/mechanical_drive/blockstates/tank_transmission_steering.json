@@ -1,0 +1,100 @@
+{
+  "multipart": [
+    {
+      "when": {
+        "frame_only": "false"
+      },
+      "apply": {
+        "model": "mechanical_drive:block/tank_transmission/tank_transmission_frame"
+      }
+    },
+    {
+      "when": {
+        "frame_only": "true"
+      },
+      "apply": {
+        "model": "mechanical_drive:block/tank_transmission/tank_transmission_frame_only"
+      }
+    },
+
+    {
+      "when": {
+        "facing": "east",
+        "vertical": "false"
+      },
+      "apply": {
+        "model": "mechanical_drive:block/tank_transmission/tank_transmission_steering_inner",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "facing": "west",
+        "vertical": "false"
+      },
+      "apply": {
+        "model": "mechanical_drive:block/tank_transmission/tank_transmission_steering_inner",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "facing": "north",
+        "vertical": "false"
+      },
+      "apply": {
+        "model": "mechanical_drive:block/tank_transmission/tank_transmission_steering_inner"
+      }
+    },
+    {
+      "when": {
+        "facing": "south",
+        "vertical": "false"
+      },
+      "apply": {
+        "model": "mechanical_drive:block/tank_transmission/tank_transmission_steering_inner",
+        "y": 180
+      }
+    },
+
+    {
+      "when": {
+        "facing": "east",
+        "vertical": "true"
+      },
+      "apply": {
+        "model": "mechanical_drive:block/tank_transmission/tank_transmission_steering_vertical_inner",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "facing": "west",
+        "vertical": "true"
+      },
+      "apply": {
+        "model": "mechanical_drive:block/tank_transmission/tank_transmission_steering_vertical_inner",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "facing": "north",
+        "vertical": "true"
+      },
+      "apply": {
+        "model": "mechanical_drive:block/tank_transmission/tank_transmission_steering_vertical_inner"
+      }
+    },
+    {
+      "when": {
+        "facing": "south",
+        "vertical": "true"
+      },
+      "apply": {
+        "model": "mechanical_drive:block/tank_transmission/tank_transmission_steering_vertical_inner",
+        "y": 180
+      }
+    }
+  ]
+}

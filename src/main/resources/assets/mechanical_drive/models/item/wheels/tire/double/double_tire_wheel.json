@@ -1,0 +1,14 @@
+{
+  "parent": "block/air",
+  "ambientocclusion": false,
+  "emissive_ambient": false,
+  "textures": {
+    "axis": "create:block/axis",
+    "axis_top": "create:block/axis_top",
+    "tire_0": "offroad:block/tire/tire_0",
+    "particle": "offroad:block/custom_break_particles/wheel"
+  },
+  "loader": "neoforge:obj",
+  "flip_v": true,
+  "model": "mechanical_drive:models/item/wheels/tire/double/separated_tire_block.obj"
+}

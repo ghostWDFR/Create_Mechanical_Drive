@@ -1,0 +1,23 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "mechanical_drive:block/tracks/mounts/sprocket/sprocket_mount",
+      "x": 90
+    },
+    "facing=east": {
+      "model": "mechanical_drive:block/tracks/mounts/sprocket/sprocket_mount",
+      "x": 90,
+      "y": 90
+    },
+    "facing=south": {
+      "model": "mechanical_drive:block/tracks/mounts/sprocket/sprocket_mount",
+      "x": 90,
+      "y": 180
+    },
+    "facing=west": {
+      "model": "mechanical_drive:block/tracks/mounts/sprocket/sprocket_mount",
+      "x": 90,
+      "y": 270
+    }
+  }
+}

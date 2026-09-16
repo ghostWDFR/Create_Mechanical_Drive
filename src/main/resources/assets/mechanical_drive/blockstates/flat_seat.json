@@ -1,0 +1,94 @@
+{
+  "variants": {
+    "color=black,facing=east": {
+      "model": "mechanical_drive:block/seats/seat_flat",
+      "y": 90
+    },
+    "color=black,facing=north": {
+      "model": "mechanical_drive:block/seats/seat_flat",
+      "y": 180
+    },
+    "color=black,facing=south": {
+      "model": "mechanical_drive:block/seats/seat_flat"
+    },
+    "color=black,facing=west": {
+      "model": "mechanical_drive:block/seats/seat_flat",
+      "y": 270
+    },
+    "color=blue,facing=east": {
+      "model": "mechanical_drive:block/seats/seat_flat_blue",
+      "y": 90
+    },
+    "color=blue,facing=north": {
+      "model": "mechanical_drive:block/seats/seat_flat_blue",
+      "y": 180
+    },
+    "color=blue,facing=south": {
+      "model": "mechanical_drive:block/seats/seat_flat_blue"
+    },
+    "color=blue,facing=west": {
+      "model": "mechanical_drive:block/seats/seat_flat_blue",
+      "y": 270
+    },
+    "color=gray,facing=east": {
+      "model": "mechanical_drive:block/seats/seat_flat_gray",
+      "y": 90
+    },
+    "color=gray,facing=north": {
+      "model": "mechanical_drive:block/seats/seat_flat_gray",
+      "y": 180
+    },
+    "color=gray,facing=south": {
+      "model": "mechanical_drive:block/seats/seat_flat_gray"
+    },
+    "color=gray,facing=west": {
+      "model": "mechanical_drive:block/seats/seat_flat_gray",
+      "y": 270
+    },
+    "color=green,facing=east": {
+      "model": "mechanical_drive:block/seats/seat_flat_green",
+      "y": 90
+    },
+    "color=green,facing=north": {
+      "model": "mechanical_drive:block/seats/seat_flat_green",
+      "y": 180
+    },
+    "color=green,facing=south": {
+      "model": "mechanical_drive:block/seats/seat_flat_green"
+    },
+    "color=green,facing=west": {
+      "model": "mechanical_drive:block/seats/seat_flat_green",
+      "y": 270
+    },
+    "color=red,facing=east": {
+      "model": "mechanical_drive:block/seats/seat_flat_red",
+      "y": 90
+    },
+    "color=red,facing=north": {
+      "model": "mechanical_drive:block/seats/seat_flat_red",
+      "y": 180
+    },
+    "color=red,facing=south": {
+      "model": "mechanical_drive:block/seats/seat_flat_red"
+    },
+    "color=red,facing=west": {
+      "model": "mechanical_drive:block/seats/seat_flat_red",
+      "y": 270
+    },
+    "color=yellow,facing=east": {
+      "model": "mechanical_drive:block/seats/seat_flat_yellow",
+      "y": 90
+    },
+    "color=yellow,facing=north": {
+      "model": "mechanical_drive:block/seats/seat_flat_yellow",
+      "y": 180
+    },
+    "color=yellow,facing=south": {
+      "model": "mechanical_drive:block/seats/seat_flat_yellow"
+    },
+    "color=yellow,facing=west": {
+      "model": "mechanical_drive:block/seats/seat_flat_yellow",
+      "y": 270
+    }
+  }
+}

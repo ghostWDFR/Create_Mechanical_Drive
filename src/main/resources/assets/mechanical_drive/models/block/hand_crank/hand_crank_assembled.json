@@ -1,0 +1,11 @@
+{
+  "loader": "neoforge:composite",
+  "children": {
+    "crank": {
+      "parent": "mechanical_drive:block/hand_crank/hand_crank"
+    },
+    "handle": {
+      "parent": "mechanical_drive:block/hand_crank/hand_crank_handle"
+    }
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "parent": "mechanical_drive:block/overrunning_clutch/overrunning_clutch",
+  "textures": {
+    "5": "create:block/gearshift_on"
+  }
+}

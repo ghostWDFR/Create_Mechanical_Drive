@@ -1,0 +1,15 @@
+{
+  "variants": {
+    "axis=x": {
+      "model": "mechanical_drive:block/hand_crank/hand_crank",
+      "y": 90
+    },
+    "axis=y": {
+      "model": "mechanical_drive:block/hand_crank/hand_crank",
+      "x": 90
+    },
+    "axis=z": {
+      "model": "mechanical_drive:block/hand_crank/hand_crank"
+    }
+  }
+}

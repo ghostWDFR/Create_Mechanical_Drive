@@ -1,0 +1,11 @@
+{
+  "loader": "neoforge:composite",
+  "children": {
+    "inner": {
+      "parent": "mechanical_drive:block/tank_transmission/tank_transmission_housing_inner"
+    },
+    "shaft": {
+      "parent": "mechanical_drive:block/tank_transmission/tank_transmission_housing_item_shaft"
+    }
+  }
+}

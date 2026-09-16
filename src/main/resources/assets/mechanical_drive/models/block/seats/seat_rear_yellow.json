@@ -1,0 +1,8 @@
+{
+  "parent": "mechanical_drive:block/seats/seat_rear",
+  "textures": {
+    "0": "mechanical_drive:block/seats/seat_yellow",
+    "particle": "#0"
+  }
+}
+

@@ -1,0 +1,40 @@
+{
+  "parent": "mechanical_drive:block/shaft_marker/shaft_marker",
+  "display": {
+    "gui": {
+      "rotation": [30, 130, 90],
+      "translation": [1.75, -0.5, 0],
+      "scale": [1, 1, 1]
+    },
+    "firstperson_righthand": {
+      "rotation": [-35, 30, 20],
+      "translation": [0, 3.25, -0.5],
+      "scale": [0.45, 0.45, 0.45]
+    },
+    "firstperson_lefthand": {
+      "rotation": [-35, 30, 20],
+      "translation": [0, 3.25, -0.5],
+      "scale": [0.45, 0.45, 0.45]
+    },
+    "thirdperson_righthand": {
+      "rotation": [0, 0, 0],
+      "translation": [0, 1.5, 0],
+      "scale": [0.45, 0.45, 0.45]
+    },
+    "thirdperson_lefthand": {
+      "rotation": [0, 0, 0],
+      "translation": [0, 1.5, 0],
+      "scale": [0.45, 0.45, 0.45]
+    },
+    "ground": {
+      "rotation": [0, 0, 0],
+      "translation": [0, 3, 0],
+      "scale": [0.25, 0.25, 0.25]
+    },
+    "fixed": {
+      "rotation": [0, 0, 0],
+      "translation": [0, 2, 0],
+      "scale": [0.75, 0.75, 0.75]
+    }
+  }
+}

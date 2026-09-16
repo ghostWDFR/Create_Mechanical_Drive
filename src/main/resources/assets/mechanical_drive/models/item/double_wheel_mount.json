@@ -1,0 +1,147 @@
+{
+  "loader": "neoforge:composite",
+  "children": {
+    "body": {
+      "parent": "mechanical_drive:block/wheel_mounts/double_wheel_mount"
+    },
+
+    "tele_outer_front": {
+      "parent": "offroad:block/wheel_mount/tele_outer",
+      "transform": {
+        "translation": [0.0, -0.4375, 0.0]
+      }
+    },
+
+    "tele_inner_front": {
+      "parent": "offroad:block/wheel_mount/tele_inner",
+      "transform": {
+        "translation": [0.0, -0.4375, 0.5625]
+      }
+    },
+
+    "mount_front": {
+      "parent": "offroad:block/wheel_mount/mount",
+      "transform": {
+        "translation": [0.0, -0.4375, 0.5625]
+      }
+    },
+
+    "spring_upper_front": {
+      "parent": "offroad:block/wheel_mount/spring_upper"
+    },
+
+    "spring_middle_front": {
+      "parent": "offroad:block/wheel_mount/spring_middle",
+      "transform": {
+        "scale": [1.0, 0.5, 1.0],
+        "origin": [0.5, 0.8125, 0.5]
+      }
+    },
+
+    "spring_lower_front": {
+      "parent": "offroad:block/wheel_mount/spring_lower",
+      "transform": {
+        "translation": [0.0, 0.4375, 0.0]
+      }
+    },
+
+    "tele_outer_back": {
+      "parent": "offroad:block/wheel_mount/tele_outer",
+      "transform": {
+        "rotation": [0, 180, 0],
+        "origin": [0.5, 0.5, 0.5],
+        "translation": [0.0, -0.4375, 0.0]
+      }
+    },
+
+    "tele_inner_back": {
+      "parent": "offroad:block/wheel_mount/tele_inner",
+      "transform": {
+        "rotation": [0, 180, 0],
+        "origin": [0.5, 0.5, 0.5],
+        "translation": [0.0, -0.4375, -0.4375]
+      }
+    },
+
+    "mount_back": {
+      "parent": "offroad:block/wheel_mount/mount",
+      "transform": {
+        "rotation": [0, 180, 0],
+        "origin": [0.5, 0.5, 0.5],
+        "translation": [0.0, -0.4375, -0.4375]
+      }
+    },
+
+    "spring_upper_back": {
+      "parent": "offroad:block/wheel_mount/spring_upper",
+      "transform": {
+        "rotation": [0, 180, 0],
+        "origin": [0.5, 0.5, 0.5]
+      }
+    },
+
+    "spring_middle_back": {
+      "parent": "offroad:block/wheel_mount/spring_middle",
+      "transform": {
+        "rotation": [0, 180, 0],
+        "origin": [0.5, 0.8125, 0.5],
+        "scale": [1.0, 0.5, 1.0]
+      }
+    },
+
+    "spring_lower_back": {
+      "parent": "offroad:block/wheel_mount/spring_lower",
+      "transform": {
+        "rotation": [0, 180, 0],
+        "origin": [0.5, 0.5, 0.5],
+        "translation": [0.0, 0.4375, 0.0]
+      }
+    },
+
+    "shaft": {
+      "parent": "create:block/shaft",
+      "transform": {
+        "rotation": [0, 0, 90],
+        "origin": [0.5, 0.5, 0.5]
+      }
+    }
+  },
+  "display": {
+    "thirdperson_righthand": {
+      "rotation": [75, 45, 0],
+      "translation": [0, 2.5, 0],
+      "scale": [0.375, 0.375, 0.375]
+    },
+
+    "thirdperson_lefthand": {
+      "rotation": [75, 45, 0],
+      "translation": [0, 2.5, 0],
+      "scale": [0.375, 0.375, 0.375]
+    },
+
+    "firstperson_righthand": {
+      "rotation": [0, 45, 0],
+      "scale": [0.4, 0.4, 0.4]
+    },
+
+    "firstperson_lefthand": {
+      "rotation": [0, -135, 0],
+      "scale": [0.4, 0.4, 0.4]
+    },
+
+    "ground": {
+      "translation": [0, 3, 0],
+      "scale": [0.25, 0.25, 0.25]
+    },
+
+    "gui": {
+      "rotation": [30, -135, 0],
+      "scale": [0.525, 0.525, 0.525]
+    },
+
+    "fixed": {
+      "rotation": [0, 90, 0],
+      "scale": [0.5, 0.5, 0.5]
+    }
+  }
+}

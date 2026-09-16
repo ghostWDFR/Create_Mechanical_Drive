@@ -1,0 +1,39 @@
+{
+  "parent": "mechanical_drive:block/tracks/segments/track_single_wide",
+  "display": {
+    "gui": {
+      "rotation": [30, 140, 0],
+      "translation": [-0.5, -0.5, 0],
+      "scale": [1, 1, 1]
+    },
+    "firstperson_righthand": {
+      "rotation": [45, 180, -40],
+      "translation": [-1, 5, 1.75],
+      "scale": [0.6, 0.6, 0.6]
+    },
+    "firstperson_lefthand": {
+      "rotation": [45, 180, -40],
+      "translation": [-1, 5, 1.75],
+      "scale": [0.6, 0.6, 0.6]
+    },
+    "thirdperson_righthand": {
+      "rotation": [55, 180, 0],
+      "translation": [0, 3.75, 0.75],
+      "scale": [0.6, 0.6, 0.6]
+    },
+    "thirdperson_lefthand": {
+      "rotation": [55, 180, 0],
+      "translation": [0, 3.75, 0.75],
+      "scale": [0.6, 0.6, 0.6]
+    },
+    "ground": {
+      "translation": [0, 3, 0],
+      "scale": [0.75, 0.75, 0.75]
+    },
+    "fixed": {
+      "rotation": [-90, 0, 0],
+      "translation": [0, 0, 0],
+      "scale": [1, 1, 1]
+    }
+  }
+}

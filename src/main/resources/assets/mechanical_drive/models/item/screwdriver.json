@@ -1,0 +1,38 @@
+{
+  "parent": "mechanical_drive:block/items/screwdriver/screwdriver",
+  "display": {
+    "gui": {
+      "rotation": [30, 0, -45],
+      "translation": [0, 0, 0],
+      "scale": [1.2, 1.2, 1.2]
+    },
+    "firstperson_righthand": {
+      "rotation": [-50, -20, 0],
+      "translation": [0, 2.5, 0],
+      "scale": [0.8, 0.8, 0.8]
+    },
+    "firstperson_lefthand": {
+      "rotation": [-50, -20, 0],
+      "translation": [0, 2.5, 0],
+      "scale": [0.8, 0.8, 0.8]
+    },
+    "thirdperson_righthand": {
+      "rotation": [0, 0, 0],
+      "translation": [0, 0.75, 0],
+      "scale": [0.625, 0.625, 0.625]
+    },
+    "thirdperson_lefthand": {
+      "rotation": [0, 0, 0],
+      "translation": [0, 0.75, 0],
+      "scale": [0.625, 0.625, 0.625]
+    },
+    "ground": {
+      "rotation": [75, 0, 90],
+      "scale": [1, 1, 1]
+    },
+    "fixed": {
+      "rotation": [-90, 47.5, 90],
+      "scale": [1, 1, 1]
+    }
+  }
+}

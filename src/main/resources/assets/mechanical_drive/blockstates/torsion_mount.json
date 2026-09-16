@@ -1,0 +1,42 @@
+{
+  "variants": {
+    "facing=north,reversed=false": {
+      "model": "mechanical_drive:block/tracks/mounts/torsion_mount/torsion_mount_empty",
+      "x": 90
+    },
+    "facing=north,reversed=true": {
+      "model": "mechanical_drive:block/tracks/mounts/torsion_mount/torsion_mount_empty",
+      "x": 90
+    },
+    "facing=east,reversed=false": {
+      "model": "mechanical_drive:block/tracks/mounts/torsion_mount/torsion_mount_empty",
+      "x": 90,
+      "y": 90
+    },
+    "facing=east,reversed=true": {
+      "model": "mechanical_drive:block/tracks/mounts/torsion_mount/torsion_mount_empty",
+      "x": 90,
+      "y": 90
+    },
+    "facing=south,reversed=false": {
+      "model": "mechanical_drive:block/tracks/mounts/torsion_mount/torsion_mount_empty",
+      "x": 90,
+      "y": 180
+    },
+    "facing=south,reversed=true": {
+      "model": "mechanical_drive:block/tracks/mounts/torsion_mount/torsion_mount_empty",
+      "x": 90,
+      "y": 180
+    },
+    "facing=west,reversed=false": {
+      "model": "mechanical_drive:block/tracks/mounts/torsion_mount/torsion_mount_empty",
+      "x": 90,
+      "y": 270
+    },
+    "facing=west,reversed=true": {
+      "model": "mechanical_drive:block/tracks/mounts/torsion_mount/torsion_mount_empty",
+      "x": 90,
+      "y": 270
+    }
+  }
+}

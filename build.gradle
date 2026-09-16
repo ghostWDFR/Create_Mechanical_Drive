@@ -1,0 +1,172 @@
+plugins {
+    id 'java-library'
+    id 'maven-publish'
+    id 'idea'
+    id 'net.neoforged.gradle.userdev' version '7.1.38'
+}
+
+tasks.named('wrapper', Wrapper).configure {
+    distributionType = Wrapper.DistributionType.BIN
+}
+
+version = mod_version
+group = mod_group_id
+
+sourceSets.main.resources {
+    srcDir('src/generated/resources')
+    exclude("**/*.bbmodel")
+    exclude("src/generated/**/.cache")
+}
+
+repositories {
+    flatDir {
+        dirs 'run/client/mods'
+    }
+
+    exclusiveContent {
+        forRepository {
+            maven {
+                name = "RyanHCodeMaven"
+                url = uri("https://maven.ryanhcode.dev/releases")
+            }
+        }
+
+        filter {
+            includeGroup("dev.ryanhcode.sable-companion")
+        }
+    }
+}
+
+base {
+    archivesName = mod_name.replaceAll('\\s+', '-')
+}
+
+java.toolchain.languageVersion = JavaLanguageVersion.of(21)
+
+def createModJar = file('run/client/mods/create-1.21.1-6.0.10.jar')
+def createJarJarDir = layout.buildDirectory.dir('createJarJar')
+def aeronauticsModJar = file('run/client/mods/create-aeronautics-bundled-1.21.1-1.3.0.jar')
+def aeronauticsJarJarDir = layout.buildDirectory.dir('aeronauticsJarJar')
+
+tasks.register('extractCreateJarJar', Copy) {
+    from(zipTree(createModJar)) {
+        include 'META-INF/jarjar/*.jar'
+        eachFile {
+            path = name
+        }
+        includeEmptyDirs = false
+    }
+    into createJarJarDir
+}
+
+tasks.register('extractAeronauticsJarJar', Copy) {
+    from(zipTree(aeronauticsModJar)) {
+        include 'META-INF/jarjar/dev.simulated_team.simulated.*.jar'
+        include 'META-INF/jarjar/dev.ryanhcode.offroad.*.jar'
+        eachFile {
+            path = name
+        }
+        includeEmptyDirs = false
+    }
+    into aeronauticsJarJarDir
+}
+
+runs {
+    configureEach {
+        systemProperty 'forge.logging.markers', 'REGISTRIES'
+        systemProperty 'forge.logging.console.level', 'debug'
+
+        workingDirectory project.layout.projectDirectory.dir('run').dir(name)
+        modSource project.sourceSets.main
+    }
+
+    client {
+        systemProperty 'neoforge.enabledGameTestNamespaces', project.mod_id
+    }
+
+    server {
+        systemProperty 'neoforge.enabledGameTestNamespaces', project.mod_id
+        argument '--nogui'
+    }
+
+    gameTestServer {
+        systemProperty 'neoforge.enabledGameTestNamespaces', project.mod_id
+    }
+
+    data {
+        arguments.addAll '--mod', project.mod_id, '--all',
+                '--output', file('src/generated/resources/').getAbsolutePath(),
+                '--existing', file('src/main/resources/').getAbsolutePath()
+    }
+}
+
+configurations {
+    runtimeClasspath.extendsFrom localRuntime
+}
+
+dependencies {
+    implementation "net.neoforged:neoforge:${neo_version}"
+
+    compileOnly files(createModJar)
+    compileOnly fileTree(createJarJarDir) {
+        include '*.jar'
+    }
+    compileOnly files('run/client/mods/sable-neoforge-1.21.1-2.0.0.jar')
+    compileOnly files('run/client/mods/create-aeronautics-bundled-1.21.1-1.3.0.jar')
+    compileOnly fileTree(aeronauticsJarJarDir) {
+        include '*.jar'
+    }
+
+    compileOnly "dev.ryanhcode.sable-companion:sable-companion-common-1.21.1:${sable_companion_version}"
+}
+
+tasks.withType(JavaCompile).configureEach {
+    dependsOn tasks.named('extractCreateJarJar')
+    dependsOn tasks.named('extractAeronauticsJarJar')
+}
+
+tasks.withType(ProcessResources).configureEach {
+    var replaceProperties = [
+            minecraft_version      : minecraft_version,
+            minecraft_version_range: minecraft_version_range,
+            neo_version            : neo_version,
+            loader_version_range   : loader_version_range,
+            mod_id                 : mod_id,
+            mod_name               : mod_name,
+            mod_license            : mod_license,
+            mod_version            : mod_version,
+            mod_authors            : mod_authors,
+            mod_description        : mod_description
+    ]
+
+    inputs.properties replaceProperties
+
+    filesMatching(['META-INF/neoforge.mods.toml']) {
+        expand replaceProperties
+    }
+}
+
+publishing {
+    publications {
+        register('mavenJava', MavenPublication) {
+            from components.java
+        }
+    }
+
+    repositories {
+        maven {
+            url "file://${project.projectDir}/repo"
+        }
+    }
+}
+
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = 'UTF-8'
+}
+
+idea {
+    module {
+        downloadSources = true
+        downloadJavadoc = true
+    }
+}

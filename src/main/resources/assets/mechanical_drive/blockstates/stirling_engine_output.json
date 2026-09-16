@@ -1,0 +1,10 @@
+{
+  "multipart": [
+    { "when": { "facing": "east" }, "apply": { "model": "mechanical_drive:block/stirling_engine/stirling_engine_front_part", "y": 90 } },
+    { "when": { "facing": "north" }, "apply": { "model": "mechanical_drive:block/stirling_engine/stirling_engine_front_part" } },
+    { "when": { "facing": "south" }, "apply": { "model": "mechanical_drive:block/stirling_engine/stirling_engine_front_part", "y": 180 } },
+    { "when": { "facing": "west" }, "apply": { "model": "mechanical_drive:block/stirling_engine/stirling_engine_front_part", "y": 270 } },
+    { "when": { "facing": "up" }, "apply": { "model": "mechanical_drive:block/stirling_engine/stirling_engine_front_part", "x": 270 } },
+    { "when": { "facing": "down" }, "apply": { "model": "mechanical_drive:block/stirling_engine/stirling_engine_front_part", "x": 90 } }
+  ]
+}

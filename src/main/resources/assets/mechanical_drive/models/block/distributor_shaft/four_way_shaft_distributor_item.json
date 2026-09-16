@@ -1,0 +1,15 @@
+{
+  "loader": "neoforge:composite",
+  "children": {
+    "frame": { "parent": "mechanical_drive:block/distributor_shaft/shaft_distributor_double_frame" },
+    "input_shaft": { "parent": "mechanical_drive:block/distributor_shaft/shaft_distributor_input_shaft" },
+    "opposite_input_shaft": {
+      "parent": "mechanical_drive:block/distributor_shaft/shaft_distributor_input_shaft",
+      "transform": {
+        "rotation": [0, 180, 0],
+        "origin": [0.5, 0.5, 0.5]
+      }
+    },
+    "horizontal_shaft": { "parent": "mechanical_drive:block/distributor_shaft/shaft_distributor_horizontal_shaft" }
+  }
+}

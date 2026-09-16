@@ -1,0 +1,153 @@
+{
+	"format_version": "1.9.0",
+	"credit": "Made with Blockbench",
+	"texture_size": [
+		32,
+		32
+	],
+	"textures": {
+		"1": "create:block/andesite_casing",
+		"4": "mechanical_drive:block/mechanical_jack/mechanical_jack_shafts",
+		"particle": "create:block/andesite_casing"
+	},
+	"elements": [
+		{
+			"name": "top_part",
+			"from": [
+				0,
+				14,
+				0
+			],
+			"to": [
+				16,
+				16,
+				16
+			],
+			"rotation": {
+				"angle": 0,
+				"axis": "y",
+				"origin": [
+					8,
+					16,
+					8
+				]
+			},
+			"faces": {
+				"north": {
+					"uv": [
+						0,
+						0,
+						16,
+						2
+					],
+					"texture": "#1"
+				},
+				"east": {
+					"uv": [
+						0,
+						0,
+						16,
+						2
+					],
+					"texture": "#1"
+				},
+				"south": {
+					"uv": [
+						0,
+						0,
+						16,
+						2
+					],
+					"texture": "#1"
+				},
+				"west": {
+					"uv": [
+						0,
+						0,
+						16,
+						2
+					],
+					"texture": "#1"
+				},
+				"up": {
+					"uv": [
+						0,
+						0,
+						16,
+						16
+					],
+					"texture": "#1"
+				},
+				"down": {
+					"uv": [
+						0,
+						0,
+						16,
+						16
+					],
+					"texture": "#1"
+				}
+			}
+		},
+		{
+			"name": "shaft_3",
+			"from": [
+				4,
+				2,
+				4
+			],
+			"to": [
+				12,
+				14,
+				12
+			],
+			"rotation": {
+				"angle": 0,
+				"axis": "y",
+				"origin": [
+					8,
+					16,
+					8
+				]
+			},
+			"faces": {
+				"north": {
+					"uv": [
+						11,
+						0,
+						15,
+						6
+					],
+					"texture": "#4"
+				},
+				"east": {
+					"uv": [
+						11,
+						0,
+						15,
+						6
+					],
+					"texture": "#4"
+				},
+				"south": {
+					"uv": [
+						11,
+						0,
+						15,
+						6
+					],
+					"texture": "#4"
+				},
+				"west": {
+					"uv": [
+						11,
+						0,
+						15,
+						6
+					],
+					"texture": "#4"
+				}
+			}
+		}
+	]
+}

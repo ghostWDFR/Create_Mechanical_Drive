@@ -1,0 +1,1197 @@
+package dev.createmechanicaldrive.content.rigid_wheel_mount;
+
+import com.simibubi.create.api.schematic.requirement.SpecialBlockEntityItemRequirement;
+import com.simibubi.create.content.equipment.clipboard.ClipboardCloneable;
+import com.simibubi.create.content.kinetics.base.KineticBlockEntity;
+import com.simibubi.create.content.schematics.requirement.ItemRequirement;
+import com.simibubi.create.content.schematics.requirement.ItemRequirement.ItemUseType;
+import dev.ryanhcode.offroad.content.components.TireLike;
+import dev.ryanhcode.offroad.index.OffroadDataComponents;
+import dev.createmechanicaldrive.content.suspension.RigidContactSolver;
+import dev.createmechanicaldrive.content.suspension.RigidMountTuningValues;
+import dev.createmechanicaldrive.content.wheel_mount_offset.WheelMountOffsets;
+import dev.createmechanicaldrive.content.shaft_marker.ShaftMarkerItem;
+import dev.createmechanicaldrive.content.shaft_marker.ShaftMarkerMountHelper;
+import dev.createmechanicaldrive.content.suspension.SuspensionSpringTuning;
+import dev.ryanhcode.sable.Sable;
+import dev.ryanhcode.sable.api.block.BlockEntitySubLevelActor;
+import dev.ryanhcode.sable.api.physics.force.ForceTotal;
+import dev.ryanhcode.sable.api.physics.handle.RigidBodyHandle;
+import dev.ryanhcode.sable.companion.math.JOMLConversion;
+import dev.ryanhcode.sable.companion.math.Pose3d;
+import dev.ryanhcode.sable.companion.math.Pose3dc;
+import dev.ryanhcode.sable.mixinterface.clip_overwrite.ClipContextExtension;
+import dev.ryanhcode.sable.physics.config.block_properties.PhysicsBlockPropertyHelper;
+import dev.ryanhcode.sable.physics.config.dimension_physics.DimensionPhysicsData;
+import dev.ryanhcode.sable.platform.SableEventPlatform;
+import dev.ryanhcode.sable.sublevel.ServerSubLevel;
+import dev.ryanhcode.sable.sublevel.SubLevel;
+import dev.ryanhcode.sable.sublevel.system.SubLevelPhysicsSystem;
+import it.unimi.dsi.fastutil.objects.ObjectOpenHashSet;
+import java.util.Collection;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
+import net.minecraft.core.Direction.Axis;
+import net.minecraft.core.Direction.AxisDirection;
+import net.minecraft.core.HolderLookup.Provider;
+import net.minecraft.core.Vec3i;
+import net.minecraft.nbt.CompoundTag;
+import net.minecraft.util.Mth;
+import net.minecraft.world.Clearable;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.ClipContext;
+import net.minecraft.world.level.block.entity.BlockEntityType;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.phys.AABB;
+import net.minecraft.world.phys.BlockHitResult;
+import net.minecraft.world.phys.Vec3;
+import net.minecraft.world.phys.shapes.CollisionContext;
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
+import org.joml.Vector3d;
+import org.joml.Vector3dc;
+
+public class RigidWheelMountBlockEntity
+        extends KineticBlockEntity
+        implements BlockEntitySubLevelActor,
+        Clearable,
+        ClipboardCloneable,
+        SpecialBlockEntityItemRequirement,
+        SuspensionSpringTuning {
+
+    private static final double MAX_GROUND_SCAN = 5.0D;
+    private static final double RIGID_CONTACT_TOLERANCE = 0.05D;
+    private static final double RIGID_CONTACT_RELEASE_TOLERANCE = 0.10D;
+    private static final double RIGID_CONTACT_SKIN = 0.0625D;
+    private static final double RIGID_SUPPORT_SLOP = 0.01D;
+    private static final double RIGID_POSITION_CORRECTION = 0.85D;
+    private static final double RIGID_MAX_CORRECTION_SPEED = 2.5D;
+    private static final double RIGID_LATERAL_FRICTION = 1.0D;
+    private static final double RIGID_ROLLING_RESISTANCE = 0.025D;
+    private static final double RIGID_BRAKE_FRICTION = 0.75D;
+    private static final double RIGID_MAX_FRICTION_MULTIPLIER = 1.25D;
+    private static final double RIGID_DRIVE_SCALE = 1.75D;
+
+    private static final float KINETIC_EPSILON = 0.001F;
+
+    private static final Collection<RigidWheelMountBlockEntity>
+            PENDING_FORCE_APPLICATIONS =
+            new ObjectOpenHashSet<>();
+
+    private static boolean physicsCallbackRegistered;
+
+    private final RigidWheelMountInventory inventory;
+    private final RigidMountTuningValues tuning =
+            new RigidMountTuningValues();
+
+    private double wheelAngle;
+    private double previousWheelAngle;
+    private double angularVelocity;
+    private double contactFriction = 1.0D;
+    private boolean wheelOffGround = true;
+
+    private final Vector3d pendingForcePosition =
+            new Vector3d();
+
+    private final ForceTotal accumulatedForces =
+            new ForceTotal();
+
+    public RigidWheelMountBlockEntity(
+            BlockEntityType<?> type,
+            BlockPos pos,
+            BlockState state
+    ) {
+        super(
+                type,
+                pos,
+                state
+        );
+
+        inventory =
+                new RigidWheelMountInventory(
+                        this
+                );
+    }
+
+    public static synchronized void registerPhysicsCallback() {
+        if (physicsCallbackRegistered) {
+            return;
+        }
+
+        RigidContactSolver.registerPhysicsCallback();
+        SableEventPlatform.INSTANCE.onPhysicsTick(
+                RigidWheelMountBlockEntity::flushPendingForces
+        );
+
+        physicsCallbackRegistered = true;
+    }
+
+    private static void flushPendingForces(
+            SubLevelPhysicsSystem physicsSystem,
+            double timeStep
+    ) {
+        for (RigidWheelMountBlockEntity mount :
+                PENDING_FORCE_APPLICATIONS) {
+
+            if (!mount.isRemoved()) {
+                mount.applyAccumulatedForces();
+            }
+        }
+
+        PENDING_FORCE_APPLICATIONS.clear();
+    }
+
+    @Override
+    public void sable$physicsTick(
+            ServerSubLevel subLevel,
+            RigidBodyHandle handle,
+            double timeStep
+    ) {
+        TireLike wheel =
+                getWheelData();
+
+        if (wheel == null
+                || timeStep <= 0.0D) {
+            return;
+        }
+
+        Direction facing =
+                getBlockState().getValue(
+                        RigidWheelMountBlock.HORIZONTAL_FACING
+                );
+
+        BlockPos mountPos =
+                getBlockPos();
+
+        Vec3 forcePoint =
+                mechanicalDrive$getWheelCenter(facing);
+
+        pendingForcePosition.set(
+                forcePoint.x,
+                forcePoint.y,
+                forcePoint.z
+        );
+
+        Pose3d vehiclePose =
+                subLevel.logicalPose();
+
+        Vector3dc lateralAxis =
+                axisVector(
+                        axisUnit(
+                                facing.getAxis()
+                        )
+                );
+
+        Vector3dc rollingAxis =
+                axisVector(
+                        perpendicularHorizontal(
+                                axisUnit(
+                                        facing.getAxis()
+                                )
+                        )
+                );
+
+        TerrainContact contact =
+                scanTerrain(
+                        rollingAxis,
+                        vehiclePose,
+                        wheel.radius()
+                );
+
+        double groundDistance =
+                contact.distance();
+
+        double targetGroundDistance =
+                wheel.radius()
+                        + RIGID_CONTACT_SKIN;
+
+        double contactTolerance =
+                (wheelOffGround
+                        ? RIGID_CONTACT_TOLERANCE
+                        : RIGID_CONTACT_RELEASE_TOLERANCE)
+                        * tuning.get(BUMP_CLEARANCE);
+
+        if (groundDistance
+                > targetGroundDistance
+                + contactTolerance) {
+
+            wheelOffGround = true;
+            return;
+        }
+
+        wheelOffGround = false;
+
+        Vector3d worldVelocity =
+                Sable.HELPER.getVelocity(
+                        level,
+                        JOMLConversion.toJOML(
+                                forcePoint
+                        )
+                );
+
+        Vector3d localVelocity =
+                vehiclePose.transformNormalInverse(
+                        worldVelocity
+                );
+
+        Vec3i hitNormal =
+                contact.normal()
+                        .getNormal();
+
+        Vector3d localNormal =
+                new Vector3d(
+                        hitNormal.getX(),
+                        hitNormal.getY(),
+                        hitNormal.getZ()
+                );
+
+        if (contact.hitSubLevel() != null) {
+            contact.hitSubLevel()
+                    .logicalPose()
+                    .transformNormal(
+                            localNormal
+                    );
+        }
+
+        vehiclePose.transformNormalInverse(
+                localNormal
+        );
+
+        if (localNormal.lengthSquared()
+                < 1.0E-8D) {
+            return;
+        }
+
+        localNormal.normalize();
+
+        double inverseNormalMass =
+                subLevel.getMassTracker()
+                        .getInverseNormalMass(
+                                pendingForcePosition,
+                                localNormal
+                        );
+
+        if (!Double.isFinite(
+                inverseNormalMass
+        ) || inverseNormalMass
+                <= 1.0E-8D) {
+            return;
+        }
+
+        double positionError =
+                targetGroundDistance
+                        - groundDistance;
+
+        double correctionSpeed =
+                Mth.clamp(
+                        positionError
+                                * RIGID_POSITION_CORRECTION
+                                * tuning.get(BUMP_FORCE)
+                                / timeStep,
+                        0.0D,
+                        RIGID_MAX_CORRECTION_SPEED
+                );
+
+        double normalSpeed =
+                localVelocity.dot(
+                        localNormal
+                );
+
+        Vector3d localGravity =
+                DimensionPhysicsData.getGravity(level);
+        vehiclePose.transformNormalInverse(localGravity);
+
+        double contactRange =
+                Math.max(
+                        RIGID_CONTACT_TOLERANCE
+                                * tuning.get(BUMP_CLEARANCE),
+                        RIGID_SUPPORT_SLOP
+                );
+
+        double contactWeight =
+                Mth.clamp(
+                        (positionError + contactRange)
+                                / contactRange,
+                        0.0D,
+                        1.0D
+                );
+
+        double supportVelocity =
+                correctionSpeed
+                        * tuning.get(MAX_IMPULSE)
+                        + Math.max(
+                                -localGravity.dot(localNormal) * timeStep,
+                                0.0D
+                        ) * contactWeight;
+
+        contactFriction =
+                contact.hitBlock() == null
+                        ? 1.0D
+                        : adjustedFriction(
+                        PhysicsBlockPropertyHelper
+                                .getFriction(
+                                        level.getBlockState(
+                                                contact.hitBlock()
+                                        )
+                                )
+                );
+
+        double usableSurfaceFriction =
+                Math.min(
+                        contactFriction,
+                        1.0D
+                );
+
+        double brake =
+                level.getSignal(
+                        mountPos.above(),
+                        Direction.UP
+                ) / 15.0D;
+
+        Vector3d lateralDirection =
+                new Vector3d(
+                        lateralAxis
+                );
+
+        Vector3d rollingDirection =
+                new Vector3d(
+                        rollingAxis
+                );
+
+        lateralDirection.fma(
+                -lateralDirection.dot(localNormal),
+                localNormal
+        );
+        rollingDirection.fma(
+                -rollingDirection.dot(localNormal),
+                localNormal
+        );
+
+        if (lateralDirection.lengthSquared() < 1.0E-8D) {
+            lateralDirection.set(rollingDirection).cross(localNormal);
+        }
+
+        lateralDirection.normalize();
+        rollingDirection.fma(
+                -rollingDirection.dot(lateralDirection),
+                lateralDirection
+        );
+        if (rollingDirection.lengthSquared() < 1.0E-8D) {
+            rollingDirection.set(localNormal).cross(lateralDirection);
+        }
+        rollingDirection.normalize();
+
+        double inverseRollingMass =
+                subLevel.getMassTracker()
+                        .getInverseNormalMass(
+                                pendingForcePosition,
+                                rollingDirection
+                        );
+
+        float kineticSpeed =
+                facing.getAxis() == Axis.X
+                        ? getSpeed()
+                        : -getSpeed();
+
+        Vector3d contactPosition =
+                new Vector3d(pendingForcePosition);
+
+        Vector3d contactNormal =
+                new Vector3d(localNormal);
+
+        Vector3d contactLateralDirection =
+                new Vector3d(lateralDirection);
+
+        Vector3d contactRollingDirection =
+                new Vector3d(rollingDirection);
+
+        RigidContactSolver.submit(
+                level,
+                subLevel,
+                contactPosition,
+                contactNormal,
+                normalSpeed * tuning.get(DAMPING),
+                supportVelocity,
+                0.0D,
+                contactLateralDirection,
+                RIGID_LATERAL_FRICTION * Math.min(
+                        tuning.get(GRIP),
+                        1.0D
+                ),
+                usableSurfaceFriction
+                        * RIGID_MAX_FRICTION_MULTIPLIER
+                        * tuning.get(GRIP),
+                (solvedImpulse, solvedLateralImpulse,
+                 postConstraintLocalVelocity) -> {
+                    if (!Double.isFinite(solvedImpulse)
+                            || solvedImpulse <= 0.0D) {
+                        return;
+                    }
+
+                    double currentRollingSpeed =
+                            postConstraintLocalVelocity.dot(
+                                    contactRollingDirection
+                            );
+
+                    Vector3d solvedContactImpulse =
+                            new Vector3d(contactNormal)
+                                    .mul(solvedImpulse);
+
+                    solvedContactImpulse.fma(
+                            solvedLateralImpulse,
+                            contactLateralDirection
+                    );
+
+                    double maxFrictionImpulse =
+                            solvedImpulse
+                                    * usableSurfaceFriction
+                                    * RIGID_MAX_FRICTION_MULTIPLIER
+                                    * tuning.get(GRIP);
+
+                    if (Double.isFinite(inverseRollingMass)
+                            && inverseRollingMass > 1.0E-8D) {
+
+                        boolean activelyDriven =
+                                Math.abs(kineticSpeed)
+                                        > KINETIC_EPSILON
+                                        && brake < 1.0D;
+
+                        double rollingImpulse =
+                                -currentRollingSpeed
+                                        / inverseRollingMass
+                                        * RIGID_ROLLING_RESISTANCE
+                                        * usableSurfaceFriction;
+
+                        if (brake > 0.0D) {
+                            rollingImpulse +=
+                                    -currentRollingSpeed
+                                            / inverseRollingMass
+                                            * brake
+                                            * RIGID_BRAKE_FRICTION
+                                            * usableSurfaceFriction;
+                        }
+
+                        rollingImpulse =
+                                Mth.clamp(
+                                        rollingImpulse,
+                                        -maxFrictionImpulse,
+                                        maxFrictionImpulse
+                                );
+
+                        solvedContactImpulse.fma(
+                                rollingImpulse,
+                                contactRollingDirection
+                        );
+
+                        if (activelyDriven) {
+                            double driveImpulse =
+                                    kineticSpeed
+                                            * (1.0D - brake)
+                                            * usableSurfaceFriction
+                                            * RIGID_DRIVE_SCALE
+                                            * tuning.get(DRIVE)
+                                            * timeStep;
+
+                            driveImpulse =
+                                    Mth.clamp(
+                                            driveImpulse,
+                                            -maxFrictionImpulse,
+                                            maxFrictionImpulse
+                                    );
+
+                            solvedContactImpulse.fma(
+                                    driveImpulse,
+                                    contactRollingDirection
+                            );
+                        }
+                    }
+
+                    if (solvedContactImpulse.lengthSquared()
+                            <= 1.0E-20D) {
+                        return;
+                    }
+
+                    accumulatedForces.applyImpulseAtPoint(
+                            subLevel,
+                            contactPosition,
+                            solvedContactImpulse
+                    );
+                }
+        );
+        PENDING_FORCE_APPLICATIONS.add(
+                this
+        );
+    }
+
+    private void applyAccumulatedForces() {
+        SubLevel containing =
+                Sable.HELPER.getContaining(
+                        this
+                );
+
+        if (containing
+                instanceof ServerSubLevel serverSubLevel) {
+
+            RigidBodyHandle
+                    .of(
+                            serverSubLevel
+                    )
+                    .applyForcesAndReset(
+                            accumulatedForces
+                    );
+        }
+    }
+
+    @Override
+    public void tick() {
+        super.tick();
+
+        if (level == null
+                || !level.isClientSide) {
+            return;
+        }
+
+        TireLike wheel =
+                getWheelData();
+
+        if (wheel == null) {
+            if (ShaftMarkerItem.isMarker(getWheel())) {
+                Direction facing = getBlockState().getValue(
+                        RigidWheelMountBlock.HORIZONTAL_FACING
+                );
+                previousWheelAngle = wheelAngle;
+                angularVelocity = ShaftMarkerMountHelper
+                        .approachDrivenAngularVelocity(
+                                this,
+                                facing,
+                                angularVelocity
+                        );
+                wheelAngle += angularVelocity;
+                wheelOffGround = true;
+                return;
+            }
+
+            previousWheelAngle = 0.0D;
+            wheelAngle = 0.0D;
+            angularVelocity = 0.0D;
+            wheelOffGround = true;
+            return;
+        }
+
+        updateClientGroundContact(
+                wheel.radius()
+        );
+
+        Direction facing =
+                getBlockState().getValue(
+                        RigidWheelMountBlock.HORIZONTAL_FACING
+                );
+
+        float speed =
+                facing.getAxis() == Axis.X
+                        ? -getSpeed()
+                        : getSpeed();
+
+        double poweredAngularVelocity =
+                speed
+                        * Math.PI
+                        * 2.0D
+                        / 60.0D
+                        / 20.0D
+                        * (
+                        15
+                                - level.getSignal(
+                                getBlockPos().above(),
+                                Direction.UP
+                        )
+                )
+                        / 15.0D;
+
+        double attemptedAngularVelocity =
+                Mth.lerp(
+                        0.2D,
+                        angularVelocity,
+                        poweredAngularVelocity
+                );
+
+        SubLevel subLevel =
+                Sable.HELPER.getContaining(
+                        this
+                );
+
+        previousWheelAngle =
+                wheelAngle;
+
+        if (subLevel == null
+                || wheelOffGround) {
+
+            angularVelocity =
+                    attemptedAngularVelocity;
+
+            wheelAngle +=
+                    angularVelocity;
+
+            return;
+        }
+
+        Vector3d velocity =
+                Sable.HELPER.getVelocity(
+                        level,
+                        JOMLConversion.toJOML(mechanicalDrive$getWheelCenter(facing))
+                );
+
+        Vector3d localVelocity =
+                subLevel.logicalPose()
+                        .transformNormalInverse(
+                                velocity
+                        )
+                        .div(
+                                20.0D
+                        );
+
+        Vector3dc rollingAxis =
+                axisVector(
+                        perpendicularHorizontal(
+                                axisUnit(
+                                        facing.getAxis()
+                                )
+                        )
+                );
+
+        double travelled =
+                localVelocity.dot(
+                        rollingAxis
+                );
+
+        double rollingAngularDelta =
+                -travelled
+                        / wheel.radius();
+
+        if (contactFriction < 1.0D) {
+            rollingAngularDelta =
+                    Mth.lerp(
+                            contactFriction,
+                            attemptedAngularVelocity,
+                            rollingAngularDelta
+                    );
+        }
+
+        wheelAngle +=
+                rollingAngularDelta;
+
+        angularVelocity =
+                rollingAngularDelta;
+    }
+
+    private void updateClientGroundContact(
+            float wheelRadius
+    ) {
+        SubLevel containing =
+                Sable.HELPER.getContaining(
+                        this
+                );
+
+        if (containing == null) {
+            wheelOffGround = true;
+            contactFriction = 1.0D;
+            return;
+        }
+
+        Direction facing =
+                getBlockState().getValue(
+                        RigidWheelMountBlock.HORIZONTAL_FACING
+                );
+
+        Vector3dc rollingAxis =
+                axisVector(
+                        perpendicularHorizontal(
+                                axisUnit(
+                                        facing.getAxis()
+                                )
+                        )
+                );
+
+        TerrainContact contact =
+                scanTerrain(
+                        rollingAxis,
+                        containing.logicalPose(),
+                        wheelRadius
+                );
+
+        wheelOffGround =
+                contact.distance()
+                        > wheelRadius
+                        + RIGID_CONTACT_SKIN
+                        + RIGID_CONTACT_TOLERANCE;
+
+        contactFriction =
+                contact.hitBlock() == null
+                        ? 1.0D
+                        : adjustedFriction(
+                        PhysicsBlockPropertyHelper
+                                .getFriction(
+                                        level.getBlockState(
+                                                contact.hitBlock()
+                                        )
+                                )
+                );
+    }
+
+    protected Vec3 mechanicalDrive$getWheelCenter(Direction wheelSide) {
+        return WheelMountOffsets.apply(
+                this,
+                getBlockPos().relative(wheelSide).getCenter(),
+                wheelSide
+        );
+    }
+    private TerrainContact scanTerrain(
+            Vector3dc rollingAxis,
+            Pose3dc vehiclePose,
+            float wheelRadius
+    ) {
+        Direction facing =
+                getBlockState().getValue(
+                        RigidWheelMountBlock.HORIZONTAL_FACING
+                );
+
+        Vec3 wheelCenter =
+                mechanicalDrive$getWheelCenter(facing);
+
+        Vector3d localDown =
+                new Vector3d(
+                        0.0D,
+                        -1.0D,
+                        0.0D
+                );
+
+        Vector3d localUp =
+                new Vector3d(
+                        0.0D,
+                        1.0D,
+                        0.0D
+                );
+
+        Vec3 rayDirection =
+                JOMLConversion.toMojang(
+                        localDown
+                );
+
+        double closestDistance =
+                MAX_GROUND_SCAN;
+
+        Direction closestNormal =
+                Direction.UP;
+
+        SubLevel closestSubLevel =
+                null;
+
+        BlockPos closestBlock =
+                null;
+
+        for (int offset = -1;
+             offset <= 1;
+             offset++) {
+
+            Vec3 rayStart =
+                    wheelCenter.add(
+                            JOMLConversion
+                                    .toMojang(
+                                            rollingAxis
+                                    )
+                                    .scale(
+                                            offset
+                                    )
+                    );
+
+            ClipContext context =
+                    new ClipContext(
+                            rayStart,
+                            rayStart.add(
+                                    rayDirection.scale(
+                                            MAX_GROUND_SCAN
+                                    )
+                            ),
+                            ClipContext.Block.COLLIDER,
+                            ClipContext.Fluid.NONE,
+                            CollisionContext.empty()
+                    );
+
+            ((ClipContextExtension) context)
+                    .sable$setIgnoredSubLevel(
+                            Sable.HELPER.getContaining(
+                                    this
+                            )
+                    );
+
+            BlockHitResult hit =
+                    level.clip(
+                            context
+                    );
+
+            if (hit.getType()
+                    == BlockHitResult.Type.MISS) {
+                continue;
+            }
+
+            SubLevel hitSubLevel =
+                    Sable.HELPER.getContaining(
+                            level,
+                            hit.getLocation()
+                    );
+
+            Vec3 worldHit =
+                    hitSubLevel == null
+                            ? hit.getLocation()
+                            : hitSubLevel
+                            .logicalPose()
+                            .transformPosition(
+                                    hit.getLocation()
+                            );
+
+            Vec3 localHit =
+                    vehiclePose.transformPositionInverse(
+                            worldHit
+                    );
+
+            Vector3d wheelToHit =
+                    new Vector3d(
+                            localHit.x - wheelCenter.x,
+                            localHit.y - wheelCenter.y,
+                            localHit.z - wheelCenter.z
+                    );
+
+            double rayDistance =
+                    wheelToHit.dot(localDown);
+
+            if (rayStart.distanceTo(localHit) < 0.05D
+                    || rayDistance <= 1.0E-5D) {
+                continue;
+            }
+
+            Direction hitDirection =
+                    hit.getDirection();
+
+            Vector3d normal =
+                    new Vector3d(
+                            hitDirection.getStepX(),
+                            hitDirection.getStepY(),
+                            hitDirection.getStepZ()
+                    );
+
+            if (hitSubLevel != null) {
+                hitSubLevel
+                        .logicalPose()
+                        .transformNormal(
+                                normal
+                        );
+            }
+
+            vehiclePose.transformNormalInverse(
+                    normal
+            );
+
+            if (normal.lengthSquared()
+                    < 1.0E-8D) {
+                continue;
+            }
+
+            normal.normalize();
+
+            double suspensionProjection =
+                    normal.dot(localUp);
+
+            if (suspensionProjection
+                    < 0.5D) {
+                continue;
+            }
+
+            double rollingProjection =
+                    normal.dot(
+                            rollingAxis
+                    );
+
+            double wheelPlaneProjection =
+                    Math.sqrt(
+                            suspensionProjection
+                                    * suspensionProjection
+                                    + rollingProjection
+                                    * rollingProjection
+                    );
+
+            double distance =
+                    rayDistance
+                            - rollingProjection
+                            * offset
+                            / suspensionProjection
+                            + wheelRadius
+                            * (
+                            1.0D
+                                    - wheelPlaneProjection
+                                    / suspensionProjection
+                    );
+
+            if (distance
+                    >= closestDistance) {
+                continue;
+            }
+
+            closestDistance =
+                    distance;
+
+            closestNormal =
+                    hitDirection;
+
+            closestSubLevel =
+                    hitSubLevel;
+
+            closestBlock =
+                    hit.getBlockPos();
+        }
+
+        return new TerrainContact(
+                closestDistance,
+                closestNormal,
+                closestSubLevel,
+                closestBlock
+        );
+    }
+
+    private static Vec3i axisUnit(
+            Axis axis
+    ) {
+        return Direction.get(
+                AxisDirection.POSITIVE,
+                axis
+        ).getNormal();
+    }
+
+    private static Vec3i perpendicularHorizontal(
+            Vec3i axis
+    ) {
+        return new Vec3i(
+                axis.getZ(),
+                0,
+                axis.getX()
+        );
+    }
+
+    private static Vector3dc axisVector(
+            Vec3i axis
+    ) {
+        return new Vector3d(
+                axis.getX(),
+                axis.getY(),
+                axis.getZ()
+        );
+    }
+
+    private static double adjustedFriction(
+            double friction
+    ) {
+        return friction < 1.0D
+                ? 0.1D
+                + 0.9D
+                * friction
+                : friction;
+    }
+
+    public RigidWheelMountInventory getInventory() {
+        return inventory;
+    }
+
+    public ItemStack getWheel() {
+        return inventory.getStackInSlot(
+                0
+        );
+    }
+
+    @Nullable
+    private TireLike getWheelData() {
+        return getWheel().get(
+                OffroadDataComponents.TIRE
+        );
+    }
+
+    public void onWheelChanged() {
+        setChanged();
+        invalidateRenderBoundingBox();
+        sendData();
+    }
+
+    public float getLerpedWheelAngle(
+            float partialTick
+    ) {
+        return (float) Mth.lerp(
+                partialTick,
+                previousWheelAngle,
+                wheelAngle
+        );
+    }
+
+    @Override
+    public float calculateStressApplied() {
+        lastStressApplied = 16.0F;
+        return lastStressApplied;
+    }
+
+    @Override
+    public ItemRequirement getRequiredItems(
+            BlockState state
+    ) {
+        return getWheel().isEmpty()
+                ? super.getRequiredItems(
+                state
+        )
+                : new ItemRequirement(
+                ItemUseType.CONSUME,
+                getWheel()
+        );
+    }
+
+    @Override
+    public String getClipboardKey() {
+        return "Rigid Wheel Mount";
+    }
+
+    @Override
+    public boolean writeToClipboard(
+            @NotNull Provider registries,
+            CompoundTag tag,
+            Direction side
+    ) {
+        return false;
+    }
+
+    @Override
+    public boolean readFromClipboard(
+            @NotNull Provider registries,
+            CompoundTag tag,
+            Player player,
+            Direction side,
+            boolean simulate
+    ) {
+        return false;
+    }
+
+    @Override
+    protected void write(
+            CompoundTag tag,
+            Provider registries,
+            boolean clientPacket
+    ) {
+        super.write(
+                tag,
+                registries,
+                clientPacket
+        );
+        tuning.write(tag);
+
+        tag.put(
+                "Wheel",
+                getWheel()
+                        .saveOptional(
+                                registries
+                        )
+        );
+    }
+
+    @Override
+    protected void read(
+            CompoundTag tag,
+            Provider registries,
+            boolean clientPacket
+    ) {
+        super.read(
+                tag,
+                registries,
+                clientPacket
+        );
+        tuning.read(tag);
+
+        inventory.setWithoutNotification(
+                ItemStack.parseOptional(
+                        registries,
+                        tag.getCompound(
+                                "Wheel"
+                        )
+                )
+        );
+
+        if (clientPacket) {
+            invalidateRenderBoundingBox();
+        }
+    }
+
+    @Override
+    public double mechanicalDrive$adjustSuspensionTuning(
+            String tuningKey,
+            int steps
+    ) {
+        double value = tuning.adjust(tuningKey, steps);
+        mechanicalDrive$syncTuning();
+        return value;
+    }
+
+    @Override
+    public double mechanicalDrive$getSuspensionTuning(String tuningKey) {
+        return tuning.get(tuningKey);
+    }
+
+    @Override
+    public void mechanicalDrive$resetSuspensionTuning() {
+        tuning.reset();
+        mechanicalDrive$syncTuning();
+    }
+
+    @Override
+    public boolean mechanicalDrive$supportsSuspensionTuning(
+            String tuningKey
+    ) {
+        return RigidMountTuningValues.supports(tuningKey);
+    }
+
+
+    private void mechanicalDrive$syncTuning() {
+        setChanged();
+        if (level != null && !level.isClientSide) {
+            sendData();
+        }
+    }
+
+    @Override
+    public void clearContent() {
+        inventory.setStackInSlot(
+                0,
+                ItemStack.EMPTY
+        );
+    }
+
+    @Override
+    protected AABB createRenderBoundingBox() {
+        AABB bounds =
+                new AABB(
+                        getBlockPos()
+                ).inflate(
+                        WheelMountOffsets.maximumAbsolute(this)
+                );
+
+        TireLike wheel =
+                getWheelData();
+
+        return wheel == null
+                ? bounds
+                : bounds.inflate(
+                wheel.radius()
+                        + 1.0F
+        );
+    }
+
+    private record TerrainContact(
+            double distance,
+            @NotNull Direction normal,
+            @Nullable SubLevel hitSubLevel,
+            @Nullable BlockPos hitBlock
+    ) {
+    }
+}

@@ -1,0 +1,22 @@
+{
+  "multipart": [
+    { "when": { "axis": "x", "facing": "down" }, "apply": { "model": "mechanical_drive:block/gearbox/car_gearbox_input", "x": 90 } },
+    { "when": { "axis": "x", "facing": "east" }, "apply": { "model": "mechanical_drive:block/gearbox/car_gearbox_input", "y": 90 } },
+    { "when": { "axis": "x", "facing": "north" }, "apply": { "model": "mechanical_drive:block/gearbox/car_gearbox_input" } },
+    { "when": { "axis": "x", "facing": "south" }, "apply": { "model": "mechanical_drive:block/gearbox/car_gearbox_input", "y": 180 } },
+    { "when": { "axis": "x", "facing": "up" }, "apply": { "model": "mechanical_drive:block/gearbox/car_gearbox_input", "x": 270 } },
+    { "when": { "axis": "x", "facing": "west" }, "apply": { "model": "mechanical_drive:block/gearbox/car_gearbox_input", "y": 270 } },
+    { "when": { "axis": "y", "facing": "down" }, "apply": { "model": "mechanical_drive:block/gearbox/car_gearbox_input", "x": 90 } },
+    { "when": { "axis": "y", "facing": "east" }, "apply": { "model": "mechanical_drive:block/gearbox/car_gearbox_input", "y": 90 } },
+    { "when": { "axis": "y", "facing": "north" }, "apply": { "model": "mechanical_drive:block/gearbox/car_gearbox_input" } },
+    { "when": { "axis": "y", "facing": "south" }, "apply": { "model": "mechanical_drive:block/gearbox/car_gearbox_input", "y": 180 } },
+    { "when": { "axis": "y", "facing": "up" }, "apply": { "model": "mechanical_drive:block/gearbox/car_gearbox_input", "x": 270 } },
+    { "when": { "axis": "y", "facing": "west" }, "apply": { "model": "mechanical_drive:block/gearbox/car_gearbox_input", "y": 270 } },
+    { "when": { "axis": "z", "facing": "down" }, "apply": { "model": "mechanical_drive:block/gearbox/car_gearbox_input", "x": 90 } },
+    { "when": { "axis": "z", "facing": "east" }, "apply": { "model": "mechanical_drive:block/gearbox/car_gearbox_input", "y": 90 } },
+    { "when": { "axis": "z", "facing": "north" }, "apply": { "model": "mechanical_drive:block/gearbox/car_gearbox_input" } },
+    { "when": { "axis": "z", "facing": "south" }, "apply": { "model": "mechanical_drive:block/gearbox/car_gearbox_input", "y": 180 } },
+    { "when": { "axis": "z", "facing": "up" }, "apply": { "model": "mechanical_drive:block/gearbox/car_gearbox_input", "x": 270 } },
+    { "when": { "axis": "z", "facing": "west" }, "apply": { "model": "mechanical_drive:block/gearbox/car_gearbox_input", "y": 270 } }
+  ]
+}

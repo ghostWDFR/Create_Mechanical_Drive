@@ -1,0 +1,345 @@
+{
+	"format_version": "1.9.0",
+	"credit": "Made with Blockbench",
+	"texture_size": [
+		32,
+		32
+	],
+	"textures": {
+		"0": "mechanical_drive:block/tracks/mounts/sprocket/sprocket_mount",
+		"particle": "mechanical_drive:block/tracks/mounts/sprocket/sprocket_mount"
+	},
+	"elements": [
+		{
+			"from": [
+				5,
+				1,
+				4
+			],
+			"to": [
+				11,
+				2,
+				12
+			],
+			"rotation": {
+				"angle": 0,
+				"axis": "y",
+				"origin": [
+					8,
+					8,
+					8
+				]
+			},
+			"faces": {
+				"north": {
+					"uv": [
+						11,
+						0,
+						14,
+						0.5
+					],
+					"texture": "#0"
+				},
+				"east": {
+					"uv": [
+						14,
+						0.5,
+						14.5,
+						4.5
+					],
+					"rotation": 90,
+					"texture": "#0"
+				},
+				"south": {
+					"uv": [
+						11,
+						4.5,
+						14,
+						5
+					],
+					"texture": "#0"
+				},
+				"west": {
+					"uv": [
+						10.5,
+						0.5,
+						11,
+						4.5
+					],
+					"rotation": 90,
+					"texture": "#0"
+				},
+				"up": {
+					"uv": [
+						11,
+						0.5,
+						14,
+						4.5
+					],
+					"texture": "#0"
+				},
+				"down": {
+					"uv": [
+						11,
+						0.5,
+						14,
+						4.5
+					],
+					"texture": "#0"
+				}
+			}
+		},
+		{
+			"from": [
+				4,
+				1,
+				5
+			],
+			"to": [
+				12,
+				2,
+				11
+			],
+			"rotation": {
+				"angle": 0,
+				"axis": "y",
+				"origin": [
+					8,
+					8,
+					8
+				]
+			},
+			"faces": {
+				"north": {
+					"uv": [
+						10.5,
+						0.5,
+						14.5,
+						1
+					],
+					"texture": "#0"
+				},
+				"east": {
+					"uv": [
+						14.5,
+						1,
+						15,
+						4
+					],
+					"rotation": 90,
+					"texture": "#0"
+				},
+				"south": {
+					"uv": [
+						10.5,
+						4,
+						14.5,
+						4.5
+					],
+					"texture": "#0"
+				},
+				"west": {
+					"uv": [
+						10,
+						1,
+						10.5,
+						4
+					],
+					"rotation": 90,
+					"texture": "#0"
+				},
+				"up": {
+					"uv": [
+						10.5,
+						1,
+						14.5,
+						4
+					],
+					"texture": "#0"
+				},
+				"down": {
+					"uv": [
+						10.5,
+						1,
+						14.5,
+						4
+					],
+					"texture": "#0"
+				}
+			}
+		},
+		{
+			"from": [
+				5,
+				0.975,
+				5
+			],
+			"to": [
+				11,
+				3,
+				11
+			],
+			"rotation": {
+				"angle": 0,
+				"axis": "y",
+				"origin": [
+					8,
+					8,
+					8
+				]
+			},
+			"faces": {
+				"north": {
+					"uv": [
+						6.5,
+						0,
+						9.5,
+						0.5
+					],
+					"texture": "#0"
+				},
+				"east": {
+					"uv": [
+						6,
+						0.5,
+						6.5,
+						3.5
+					],
+					"rotation": 90,
+					"texture": "#0"
+				},
+				"south": {
+					"uv": [
+						6.5,
+						3.5,
+						9.5,
+						4
+					],
+					"texture": "#0"
+				},
+				"west": {
+					"uv": [
+						9.5,
+						0.5,
+						10,
+						3.5
+					],
+					"rotation": 90,
+					"texture": "#0"
+				},
+				"up": {
+					"uv": [
+						6.5,
+						0.5,
+						9.5,
+						3.5
+					],
+					"texture": "#0"
+				},
+				"down": {
+					"uv": [
+						6.5,
+						0.5,
+						9.5,
+						3.5
+					],
+					"texture": "#0"
+				}
+			}
+		}
+	],
+	"display": {
+		"thirdperson_righthand": {
+			"rotation": [
+				55,
+				-180,
+				0
+			],
+			"translation": [
+				0,
+				3.75,
+				0.75
+			],
+			"scale": [
+				0.4,
+				0.4,
+				0.4
+			]
+		},
+		"firstperson_righthand": {
+			"rotation": [
+				45,
+				-180,
+				-40
+			],
+			"translation": [
+				-1,
+				5,
+				1.75
+			],
+			"scale": [
+				0.4,
+				0.4,
+				0.4
+			]
+		},
+		"ground": {
+			"translation": [
+				0,
+				3,
+				0
+			],
+			"scale": [
+				0.5,
+				0.5,
+				0.5
+			]
+		},
+		"gui": {
+			"rotation": [
+				120,
+				-180,
+				45
+			],
+			"translation": [
+				4.75,
+				-2.25,
+				0
+			],
+			"scale": [
+				0.9,
+				0.9,
+				0.9
+			]
+		},
+		"fixed": {
+			"rotation": [
+				-90,
+				0,
+				0
+			],
+			"translation": [
+				0,
+				0,
+				-7
+			]
+		}
+	},
+	"groups": [
+		{
+			"name": "idler_axle",
+			"origin": [
+				8,
+				8,
+				8
+			],
+			"scope": 0,
+			"color": 0,
+			"children": [
+				0,
+				1,
+				2
+			]
+		}
+	]
+}

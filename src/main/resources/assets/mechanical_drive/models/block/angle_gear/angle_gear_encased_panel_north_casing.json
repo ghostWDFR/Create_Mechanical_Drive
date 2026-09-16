@@ -1,0 +1,32 @@
+{
+  "parent": "block/block",
+  "textures": {
+    "particle": "create:block/andesite_casing",
+    "panel": "create:block/andesite_casing"
+  },
+  "elements": [
+    {
+      "from": [
+        2,
+        2,
+        1
+      ],
+      "to": [
+        14,
+        14,
+        2
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            2,
+            2,
+            14,
+            14
+          ],
+          "texture": "#panel"
+        }
+      }
+    }
+  ]
+}

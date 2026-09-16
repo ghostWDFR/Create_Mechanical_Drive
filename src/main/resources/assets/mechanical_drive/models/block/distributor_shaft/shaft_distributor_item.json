@@ -1,0 +1,14 @@
+{
+  "loader": "neoforge:composite",
+  "children": {
+    "frame": {
+      "parent": "mechanical_drive:block/distributor_shaft/shaft_distributor_frame"
+    },
+    "input_shaft": {
+      "parent": "mechanical_drive:block/distributor_shaft/shaft_distributor_input_shaft"
+    },
+    "horizontal_shaft": {
+      "parent": "mechanical_drive:block/distributor_shaft/shaft_distributor_horizontal_shaft"
+    }
+  }
+}

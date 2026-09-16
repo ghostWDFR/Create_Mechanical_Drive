@@ -1,0 +1,14 @@
+{
+  "loader": "neoforge:composite",
+  "children": {
+    "body": {
+      "parent": "mechanical_drive:block/dog_clutch/dog_clutch"
+    },
+    "shaft": {
+      "parent": "create:block/shaft"
+    },
+    "gear": {
+      "parent": "create:block/cogwheel_shaftless"
+    }
+  }
+}

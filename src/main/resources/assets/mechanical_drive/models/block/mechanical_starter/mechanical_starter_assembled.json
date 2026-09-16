@@ -1,0 +1,18 @@
+{
+  "loader": "neoforge:composite",
+  "children": {
+    "body": {
+      "parent": "mechanical_drive:block/mechanical_starter/mechanical_starter_block"
+    },
+    "button": {
+      "parent": "mechanical_drive:block/mechanical_starter/mechanical_starter_button"
+    },
+    "shaft": {
+      "parent": "create:block/shaft_half",
+      "transform": {
+        "rotation": [270, 0, 0],
+        "translation": [0, -0.5, -1]
+      }
+    }
+  }
+}

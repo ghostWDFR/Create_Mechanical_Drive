@@ -1,0 +1,11 @@
+{
+  "loader": "neoforge:composite",
+  "children": {
+    "base": {
+      "parent": "mechanical_drive:block/steering_wheel/steering_wheel_base"
+    },
+    "wheel": {
+      "parent": "mechanical_drive:block/steering_wheel/steering_wheel_yellow"
+    }
+  }
+}

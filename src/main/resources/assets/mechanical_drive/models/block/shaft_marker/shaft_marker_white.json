@@ -1,0 +1,6 @@
+{
+  "parent": "mechanical_drive:block/shaft_marker/shaft_marker",
+  "textures": {
+    "wool": "minecraft:block/white_wool"
+  }
+}

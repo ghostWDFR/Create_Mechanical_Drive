@@ -1,0 +1,9 @@
+{
+  "multipart": [
+    {
+      "apply": {
+        "model": "mechanical_drive:block/mechanical_jack/mechanical_jack_empty"
+      }
+    }
+  ]
+}
