@@ -1,5 +1,5 @@
 <p align="center">
-  <img src=".github/assets/mechanical_drive_logo.png" alt="Create: Mechanical Drive" width="720">
+  <img src=".github/assets/mechanical_drive_logo.png" alt="Create: Mechanical Drive" width="500">
 </p>
 
 <p align="center">
