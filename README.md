@@ -1,6 +1,12 @@
-# Create: Mechanical Drive
+<p align="center">
+  <img src=".github/assets/mechanical_drive_logo.png" alt="Create: Mechanical Drive" width="720">
+</p>
 
-> **Advanced mechanical vehicles and engineering systems for Create.**
+<p align="center">
+  <strong>Advanced mechanical vehicles and engineering systems for Create.</strong>
+</p>
+
+---
 
 **Create: Mechanical Drive** is a NeoForge addon for **Minecraft 1.21.1** focused on advanced mechanical vehicles, power transmission, steering, suspension, drivetrains, and other engineering-oriented systems built on top of **Create**, **Sable**, and **Create: Aeronautics**.
 
