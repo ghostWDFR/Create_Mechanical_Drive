@@ -60,7 +60,8 @@ public class MechanicalStarterBlock
         return defaultBlockState()
                 .setValue(
                         FACING,
-                        context.getClickedFace()
+                        context.getNearestLookingDirection()
+                                .getOpposite()
                 );
     }
 
