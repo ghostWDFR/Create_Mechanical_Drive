@@ -35,6 +35,7 @@ import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.neoforged.neoforge.common.NeoForge;
 import net.neoforged.neoforge.event.level.BlockEvent;
+import net.minecraft.world.phys.Vec3;
 
 import java.util.List;
 
@@ -467,6 +468,22 @@ public class WormGearSmallBlock
             InteractionHand hand,
             BlockHitResult hitResult
     ) {
+        if (AllBlocks.LARGE_COGWHEEL.isIn(stack)) {
+            if (tryPlaceSupportedCog(
+                    level,
+                    pos,
+                    state,
+                    hitResult.getDirection(),
+                    stack,
+                    player,
+                    hand
+            )) {
+                return ItemInteractionResult.SUCCESS;
+            }
+
+            return ItemInteractionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
+        }
+
         if (!AllBlocks.ANDESITE_CASING.isIn(stack)) {
             return ItemInteractionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
         }
@@ -504,6 +521,121 @@ public class WormGearSmallBlock
         }
 
         return ItemInteractionResult.SUCCESS;
+    }
+
+    private boolean tryPlaceSupportedCog(
+            Level level,
+            BlockPos pos,
+            BlockState wormState,
+            Direction clickedFace,
+            ItemStack stack,
+            Player player,
+            InteractionHand hand
+    ) {
+        Direction.Axis wormAxis =
+                wormState.getValue(AXIS);
+
+        Direction.Axis connectionAxis =
+                clickedFace.getAxis();
+
+        if (connectionAxis == wormAxis) {
+            return false;
+        }
+
+        Direction.Axis cogAxis =
+                getRemainingAxis(
+                        connectionAxis,
+                        wormAxis
+                );
+
+        if (cogAxis == null) {
+            return false;
+        }
+
+        BlockPos targetPos =
+                pos.relative(clickedFace);
+
+        BlockState targetState =
+                level.getBlockState(targetPos);
+
+        BlockHitResult targetHit =
+                new BlockHitResult(
+                        Vec3.atCenterOf(targetPos),
+                        clickedFace,
+                        targetPos,
+                        false
+                );
+
+        BlockPlaceContext context =
+                new BlockPlaceContext(
+                        level,
+                        player,
+                        hand,
+                        stack,
+                        targetHit
+                );
+
+        if (!targetState.canBeReplaced(context)) {
+            return false;
+        }
+
+        BlockState placedState =
+                AllBlocks.LARGE_COGWHEEL.get()
+                        .defaultBlockState()
+                        .setValue(
+                                AXIS,
+                                cogAxis
+                        );
+
+        if (!level.isClientSide) {
+            level.setBlock(
+                    targetPos,
+                    placedState,
+                    3
+            );
+
+            playCogPlaceSound(
+                    level,
+                    targetPos,
+                    placedState,
+                    player
+            );
+
+            if (player == null
+                    || !player.isCreative()) {
+                stack.shrink(
+                        1
+                );
+            }
+        }
+
+        return true;
+    }
+
+    private static void playCogPlaceSound(
+            Level level,
+            BlockPos pos,
+            BlockState state,
+            Player player
+    ) {
+        SoundType soundType =
+                state.getSoundType(
+                        level,
+                        pos,
+                        player
+                );
+
+        level.playSound(
+                null,
+                pos,
+                soundType.getPlaceSound(),
+                SoundSource.BLOCKS,
+                (soundType.getVolume()
+                        + 1.0F)
+                        / 2.0F,
+                soundType.getPitch()
+                        * 0.8F
+        );
     }
 
     @Override
