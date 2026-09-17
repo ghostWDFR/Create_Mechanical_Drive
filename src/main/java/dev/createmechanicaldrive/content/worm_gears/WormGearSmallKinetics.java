@@ -72,6 +72,78 @@ public final class WormGearSmallKinetics {
         return null;
     }
 
+    public static boolean shareAdjacentWorm(
+            KineticBlockEntity first,
+            KineticBlockEntity second
+    ) {
+        Level level =
+                first.getLevel();
+
+        if (level == null || level != second.getLevel()) {
+            return false;
+        }
+
+        if (
+                !ICogWheel.isLargeCog(
+                        first.getBlockState()
+                )
+                        || !ICogWheel.isLargeCog(
+                        second.getBlockState()
+                )
+        ) {
+            return false;
+        }
+
+        BlockPos firstPos =
+                first.getBlockPos();
+
+        BlockPos secondPos =
+                second.getBlockPos();
+
+        for (Direction direction : Direction.values()) {
+            BlockPos wormPos =
+                    firstPos.relative(direction);
+
+            BlockEntity blockEntity =
+                    level.getBlockEntity(wormPos);
+
+            if (!(
+                    blockEntity
+                            instanceof WormGearSmallBlockEntity worm
+            )) {
+                continue;
+            }
+
+            BlockPos firstDiff =
+                    firstPos.subtract(wormPos);
+
+            if (!WormGearSmallBlockEntity
+                    .isValidWormCogConnection(
+                            worm.getBlockState(),
+                            first.getBlockState(),
+                            firstDiff
+                    )) {
+                continue;
+            }
+
+            BlockPos secondDiff =
+                    secondPos.subtract(wormPos);
+
+            if (!WormGearSmallBlockEntity
+                    .isValidWormCogConnection(
+                            worm.getBlockState(),
+                            second.getBlockState(),
+                            secondDiff
+                    )) {
+                continue;
+            }
+
+            return true;
+        }
+
+        return false;
+    }
+
     public static WormGearSmallBlockEntity findDrivingWorm(KineticBlockEntity cog)
     {
         if (cog.hasSource()) {

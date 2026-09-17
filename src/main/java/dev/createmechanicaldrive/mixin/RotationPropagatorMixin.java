@@ -3,6 +3,7 @@ package dev.createmechanicaldrive.mixin;
 import com.simibubi.create.content.kinetics.RotationPropagator;
 import com.simibubi.create.content.kinetics.base.KineticBlockEntity;
 import dev.createmechanicaldrive.content.gear_reducer.GearReducerKinetics;
+import dev.createmechanicaldrive.content.worm_gears.WormGearSmallKinetics;
 import dev.createmechanicaldrive.content.overrunning_clutch.OverrunningClutchBlock;
 import dev.createmechanicaldrive.content.overrunning_clutch.OverrunningClutchBlockEntity;
 import dev.createmechanicaldrive.content.rotary_limiter.RotaryLimiterBlockEntity;
@@ -53,6 +54,11 @@ public class RotationPropagatorMixin {
                 )
                         || GearReducerKinetics
                         .shouldSeparateReductionConnection(
+                                from,
+                                to
+                        )
+                        || WormGearSmallKinetics
+                        .shareAdjacentWorm(
                                 from,
                                 to
                         )
