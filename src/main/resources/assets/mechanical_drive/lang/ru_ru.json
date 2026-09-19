@@ -710,5 +710,6 @@
   "item.mechanical_drive.separated_tire.tooltip.behaviour1": "_Устанавливается_ на крепления Mechanical Drive и Offroad.",
   "item.mechanical_drive.double_tire.tooltip.summary": "Сдвоенная стандартная _шина_ с более широкой зоной контакта.",
   "item.mechanical_drive.double_tire.tooltip.condition1": "При ПКМ по совместимому креплению колеса",
-  "item.mechanical_drive.double_tire.tooltip.behaviour1": "_Устанавливается_ на крепления Mechanical Drive и Offroad."
+  "item.mechanical_drive.double_tire.tooltip.behaviour1": "_Устанавливается_ на крепления Mechanical Drive и Offroad.",
+  "block.mechanical_drive.service_tank": "Сервисный бак"
 }

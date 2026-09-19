@@ -710,5 +710,6 @@
   "item.mechanical_drive.separated_tire.tooltip.behaviour1": "_S'installe_ sur les supports Mechanical Drive et Offroad.",
   "item.mechanical_drive.double_tire.tooltip.summary": "Un _pneu_ standard jumelé avec zone de contact plus large.",
   "item.mechanical_drive.double_tire.tooltip.condition1": "Avec clic droit sur un support compatible",
-  "item.mechanical_drive.double_tire.tooltip.behaviour1": "_S'installe_ sur les supports Mechanical Drive et Offroad."
+  "item.mechanical_drive.double_tire.tooltip.behaviour1": "_S'installe_ sur les supports Mechanical Drive et Offroad.",
+  "block.mechanical_drive.service_tank": "Réservoir de service"
 }

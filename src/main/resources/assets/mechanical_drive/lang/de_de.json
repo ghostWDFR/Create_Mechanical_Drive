@@ -710,5 +710,6 @@
   "item.mechanical_drive.separated_tire.tooltip.behaviour1": "_Montiert_ sich auf Mechanical-Drive- und Offroad-Radhalterungen.",
   "item.mechanical_drive.double_tire.tooltip.summary": "Ein doppelter Standard-_Reifen_ mit breiterer Auflage.",
   "item.mechanical_drive.double_tire.tooltip.condition1": "Bei Rechtsklick auf passende Radhalterung",
-  "item.mechanical_drive.double_tire.tooltip.behaviour1": "_Montiert_ sich auf Mechanical-Drive- und Offroad-Radhalterungen."
+  "item.mechanical_drive.double_tire.tooltip.behaviour1": "_Montiert_ sich auf Mechanical-Drive- und Offroad-Radhalterungen.",
+  "block.mechanical_drive.service_tank": "Servicetank"
 }

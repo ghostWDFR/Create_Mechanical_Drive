@@ -2,6 +2,7 @@ package dev.createmechanicaldrive.content.gearbox;
 
 import dev.createmechanicaldrive.CreateMechanicalDrive;
 import com.simibubi.create.content.equipment.wrench.IWrenchable;
+import com.simibubi.create.content.kinetics.base.IRotate;
 import com.simibubi.create.content.kinetics.base.RotatedPillarKineticBlock;
 import com.simibubi.create.foundation.block.IBE;
 import net.minecraft.core.BlockPos;
@@ -71,6 +72,32 @@ public class CarGearboxInputBlock extends RotatedPillarKineticBlock implements I
                                 POSITION,
                                 GearboxPosition.NEUTRAL
                         );
+            }
+        }
+
+        Direction connectedDirection =
+                context.getClickedFace()
+                        .getOpposite();
+
+        if (connectedDirection.getAxis().isHorizontal()) {
+            BlockPos neighbourPos =
+                    pos.relative(connectedDirection);
+
+            BlockState neighbourState =
+                    context.getLevel()
+                            .getBlockState(neighbourPos);
+
+            if (neighbourState.getBlock() instanceof IRotate rotate
+                    && rotate.hasShaftTowards(
+                    context.getLevel(),
+                    neighbourPos,
+                    neighbourState,
+                    connectedDirection.getOpposite()
+            )) {
+                return defaultBlockState()
+                        .setValue(FACING, connectedDirection)
+                        .setValue(AXIS, connectedDirection.getAxis())
+                        .setValue(POSITION, GearboxPosition.NEUTRAL);
             }
         }
 

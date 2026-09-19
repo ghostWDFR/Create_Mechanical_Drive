@@ -710,5 +710,6 @@
   "item.mechanical_drive.separated_tire.tooltip.behaviour1": "_Installs_ on Mechanical Drive and Offroad wheel mounts.",
   "item.mechanical_drive.double_tire.tooltip.summary": "A paired standard _Tire_ with a wider contact patch.",
   "item.mechanical_drive.double_tire.tooltip.condition1": "When RMB on a Compatible Wheel Mount",
-  "item.mechanical_drive.double_tire.tooltip.behaviour1": "_Installs_ on Mechanical Drive and Offroad wheel mounts."
+  "item.mechanical_drive.double_tire.tooltip.behaviour1": "_Installs_ on Mechanical Drive and Offroad wheel mounts.",
+  "block.mechanical_drive.service_tank": "Service Tank"
 }

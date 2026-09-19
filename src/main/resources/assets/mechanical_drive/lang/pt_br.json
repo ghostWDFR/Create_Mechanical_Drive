@@ -710,5 +710,6 @@
   "item.mechanical_drive.separated_tire.tooltip.behaviour1": "_Instala_ em suportes de roda do Mechanical Drive e Offroad.",
   "item.mechanical_drive.double_tire.tooltip.summary": "Um _Pneu_ padrão duplo com área de contato maior.",
   "item.mechanical_drive.double_tire.tooltip.condition1": "Com RMB em um Suporte de Roda Compatível",
-  "item.mechanical_drive.double_tire.tooltip.behaviour1": "_Instala_ em suportes de roda do Mechanical Drive e Offroad."
+  "item.mechanical_drive.double_tire.tooltip.behaviour1": "_Instala_ em suportes de roda do Mechanical Drive e Offroad.",
+  "block.mechanical_drive.service_tank": "Tanque de Serviço"
 }

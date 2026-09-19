@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "mechanical_drive:block/service_tank/service_tank"
+    },
+    "facing=east": {
+      "model": "mechanical_drive:block/service_tank/service_tank",
+      "y": 90
+    },
+    "facing=south": {
+      "model": "mechanical_drive:block/service_tank/service_tank",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "mechanical_drive:block/service_tank/service_tank",
+      "y": 270
+    }
+  }
+}

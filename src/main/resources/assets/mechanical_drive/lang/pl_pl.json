@@ -710,5 +710,6 @@
   "item.mechanical_drive.separated_tire.tooltip.behaviour1": "_Montuje się_ na mocowaniach kół Mechanical Drive i Offroad.",
   "item.mechanical_drive.double_tire.tooltip.summary": "Podwójna standardowa _Opona_ z szerszą powierzchnią styku.",
   "item.mechanical_drive.double_tire.tooltip.condition1": "Po PPM na Zgodnym Mocowaniu Koła",
-  "item.mechanical_drive.double_tire.tooltip.behaviour1": "_Montuje się_ na mocowaniach kół Mechanical Drive i Offroad."
+  "item.mechanical_drive.double_tire.tooltip.behaviour1": "_Montuje się_ na mocowaniach kół Mechanical Drive i Offroad.",
+  "block.mechanical_drive.service_tank": "Zbiornik serwisowy"
 }

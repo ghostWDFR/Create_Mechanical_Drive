@@ -3,6 +3,7 @@ package dev.createmechanicaldrive;
 import com.simibubi.create.foundation.item.ItemDescription;
 import com.simibubi.create.foundation.item.KineticStats;
 import com.simibubi.create.foundation.item.TooltipModifier;
+import com.simibubi.create.content.fluids.tank.FluidTankRenderer;
 import dev.createmechanicaldrive.client.ChainGearSelectionClientInput;
 import dev.createmechanicaldrive.client.CardanShaftPlacementClientInput;
 import dev.createmechanicaldrive.client.CompactStrutInteractionClientInput;
@@ -974,6 +975,10 @@ public class CreateMechanicalDriveClient {
 
     @SubscribeEvent
     public static void registerRenderers(EntityRenderersEvent.RegisterRenderers event) {
+        event.registerBlockEntityRenderer(
+                CreateMechanicalDrive.SERVICE_TANK_BLOCK_ENTITY.get(),
+                FluidTankRenderer::new
+        );
         event.registerBlockEntityRenderer(
                 CreateMechanicalDrive.GEARBOX_INPUT_BLOCK_ENTITY.get(),
                 CarGearboxInputRenderer::new

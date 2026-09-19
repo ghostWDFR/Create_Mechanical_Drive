@@ -4,6 +4,7 @@ import dev.createmechanicaldrive.CreateMechanicalDrive;
 import com.simibubi.create.content.equipment.wrench.IWrenchable;
 import com.simibubi.create.content.kinetics.RotationPropagator;
 import com.simibubi.create.content.kinetics.base.AbstractEncasedShaftBlock;
+import com.simibubi.create.content.kinetics.base.IRotate;
 import com.simibubi.create.content.kinetics.base.KineticBlockEntity;
 import com.simibubi.create.foundation.block.IBE;
 import net.minecraft.core.BlockPos;
@@ -52,6 +53,28 @@ public class CarGearboxSpeedBlock extends AbstractEncasedShaftBlock implements I
                 return defaultBlockState()
                         .setValue(FACING, direction)
                         .setValue(AXIS, direction.getAxis())
+                        .setValue(POSITION, GearboxPosition.NEUTRAL);
+            }
+        }
+
+        Direction connectedDirection = context.getClickedFace().getOpposite();
+
+        if (connectedDirection.getAxis().isHorizontal()) {
+            BlockPos neighbourPos = pos.relative(connectedDirection);
+            BlockState neighbourState = context.getLevel().getBlockState(neighbourPos);
+
+            if (neighbourState.getBlock() instanceof IRotate rotate
+                    && rotate.hasShaftTowards(
+                    context.getLevel(),
+                    neighbourPos,
+                    neighbourState,
+                    connectedDirection.getOpposite()
+            )) {
+                Direction facing = connectedDirection.getOpposite();
+
+                return defaultBlockState()
+                        .setValue(FACING, facing)
+                        .setValue(AXIS, facing.getAxis())
                         .setValue(POSITION, GearboxPosition.NEUTRAL);
             }
         }

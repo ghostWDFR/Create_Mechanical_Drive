@@ -108,6 +108,8 @@ import dev.createmechanicaldrive.content.stirling_engine.StirlingEngineFlywheelB
 import dev.createmechanicaldrive.content.stirling_engine.StirlingEngineFlywheelBlockEntity;
 import dev.createmechanicaldrive.content.rotary_limiter.RotaryLimiterBlock;
 import dev.createmechanicaldrive.content.rotary_limiter.RotaryLimiterBlockEntity;
+import dev.createmechanicaldrive.content.service_tank.ServiceTankBlock;
+import dev.createmechanicaldrive.content.service_tank.ServiceTankBlockEntity;
 import dev.ryanhcode.offroad.content.components.TireLike;
 import dev.ryanhcode.offroad.content.items.tire.TireItem;
 import dev.ryanhcode.offroad.index.OffroadDataComponents;
@@ -178,6 +180,30 @@ public class CreateMechanicalDrive {
             DeferredRegister.create(
                     CreateRegistries.DISPLAY_SOURCE,
                     MOD_ID
+            );
+
+    public static final DeferredBlock<ServiceTankBlock> SERVICE_TANK =
+            BLOCKS.registerBlock(
+                    "service_tank",
+                    ServiceTankBlock::new,
+                    BlockBehaviour.Properties.of()
+                            .mapColor(MapColor.COLOR_ORANGE)
+                            .strength(3.0F, 6.0F)
+                            .sound(SoundType.COPPER)
+                            .noOcclusion()
+            );
+
+    public static final DeferredHolder<
+            BlockEntityType<?>,
+            BlockEntityType<ServiceTankBlockEntity>
+            > SERVICE_TANK_BLOCK_ENTITY =
+            BLOCK_ENTITY_TYPES.register(
+                    "service_tank",
+                    () -> BlockEntityType.Builder.of(
+                                    CreateMechanicalDrive::createServiceTankBlockEntity,
+                                    SERVICE_TANK.get()
+                            )
+                            .build(null)
             );
 
     public static final DeferredBlock<CarGearboxInputBlock> GEARBOX_INPUT = BLOCKS.registerBlock("car_gearbox_input",
@@ -1379,6 +1405,9 @@ public class CreateMechanicalDrive {
     public static final DeferredItem<BlockItem> GEARBOX_INPUT_ITEM =
             ITEMS.registerSimpleBlockItem("car_gearbox_input", GEARBOX_INPUT);
 
+    public static final DeferredItem<BlockItem> SERVICE_TANK_ITEM =
+            ITEMS.registerSimpleBlockItem("service_tank", SERVICE_TANK);
+
     public static final DeferredItem<BlockItem> ENGINE_ITEM =
             ITEMS.registerSimpleBlockItem("engine", ENGINE);
 
@@ -2314,6 +2343,7 @@ public class CreateMechanicalDrive {
                     .withTabsBefore(CreativeModeTabs.SPAWN_EGGS)
                     .icon(() -> STEERING_WHEEL_ITEM.get().getDefaultInstance())
                     .displayItems((parameters, output) -> {
+                        output.accept(SERVICE_TANK_ITEM.get());
                         output.accept(GEARBOX_INPUT_ITEM.get());
                         output.accept(GEARBOX_SPEED_ITEM.get());
                         output.accept(STIRLING_ENGINE_HEATER_ITEM.get());
@@ -2526,6 +2556,17 @@ public class CreateMechanicalDrive {
         );
     }
 
+    private static ServiceTankBlockEntity createServiceTankBlockEntity(
+            BlockPos pos,
+            BlockState state
+    ) {
+        return new ServiceTankBlockEntity(
+                SERVICE_TANK_BLOCK_ENTITY.get(),
+                pos,
+                state
+        );
+    }
+
     public CreateMechanicalDrive(IEventBus modEventBus) {
         modEventBus.addListener(this::commonSetup);
         modEventBus.addListener(this::registerCapabilities);
@@ -2553,6 +2594,11 @@ public class CreateMechanicalDrive {
                 ENGINE_BLOCK_ENTITY.get(),
                 (engine, side) ->
                         engine.getLavaFuelHandler()
+        );
+        event.registerBlockEntity(
+                Capabilities.FluidHandler.BLOCK,
+                SERVICE_TANK_BLOCK_ENTITY.get(),
+                (tank, side) -> tank.getTankInventory()
         );
         event.registerBlockEntity(
                 Capabilities.ItemHandler.BLOCK,

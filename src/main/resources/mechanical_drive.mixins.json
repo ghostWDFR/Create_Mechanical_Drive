@@ -5,8 +5,10 @@
   "minVersion": "0.8",
   "mixins": [
     "CompactStrutSupportShapeMixin",
+    "ConnectivityHandlerMixin",
     "CreativeModeTabMixin",
     "DirectionalShaftHalvesBlockEntityMixin",
+    "FluidTankBlockEntityMixin",
     "KineticBlockEntityMixin",
     "KineticNetworkMixin",
     "MechanicalDriveWheelMountOffsetMixin",

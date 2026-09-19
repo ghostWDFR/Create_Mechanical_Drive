@@ -228,6 +228,7 @@ public final class CreativeTabSections {
                         ),
 
                         List.of(
+                                CreateMechanicalDrive.SERVICE_TANK_ITEM,
                                 CreateMechanicalDrive.DOG_CLUTCH_ITEM,
                                 CreateMechanicalDrive.OVERRUNNING_CLUTCH_ITEM,
                                 CreateMechanicalDrive.GEAR_REDUCER_ITEM,

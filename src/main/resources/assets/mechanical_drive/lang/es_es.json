@@ -710,5 +710,6 @@
   "item.mechanical_drive.separated_tire.tooltip.behaviour1": "_Se instala_ en soportes de Mechanical Drive y Offroad.",
   "item.mechanical_drive.double_tire.tooltip.summary": "Un _neumático_ estándar doble con mayor huella de contacto.",
   "item.mechanical_drive.double_tire.tooltip.condition1": "Con clic derecho en un soporte compatible",
-  "item.mechanical_drive.double_tire.tooltip.behaviour1": "_Se instala_ en soportes de Mechanical Drive y Offroad."
+  "item.mechanical_drive.double_tire.tooltip.behaviour1": "_Se instala_ en soportes de Mechanical Drive y Offroad.",
+  "block.mechanical_drive.service_tank": "Tanque de servicio"
 }
