@@ -1,6 +1,5 @@
 {
 	"ambientocclusion": true,
-	"credit": "Made with Blockbench",
 	"parent": "block/block",
 	"textures": {
 		"0": "create:block/fluid_tank_top",

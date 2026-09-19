@@ -1,6 +1,4 @@
 {
-	"format_version": "1.9.0",
-	"credit": "Made with Blockbench",
 	"textures": {
 		"0": "mechanical_drive:block/hand_crank/hand_crank",
 		"particle": "mechanical_drive:block/hand_crank/hand_crank"

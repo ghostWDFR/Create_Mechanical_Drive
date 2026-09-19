@@ -1,6 +1,4 @@
 {
-	"format_version": "1.9.0",
-	"credit": "Made with Blockbench",
 	"textures": {
 		"0": "simulated:block/spring/spring",
 		"2": "mechanical_drive:block/suspension_strut/strut_parts",

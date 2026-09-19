@@ -1,6 +1,4 @@
 {
-	"format_version": "1.21.11",
-	"credit": "Made with Blockbench",
 	"textures": {
 		"3": "mechanical_drive:block/mechanical_starter/starter_button",
 		"particle": "create:block/andesite_casing"

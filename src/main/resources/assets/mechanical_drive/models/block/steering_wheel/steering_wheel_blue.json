@@ -1,6 +1,4 @@
 {
-	"format_version": "1.9.0",
-	"credit": "Made with Blockbench",
 	"textures": {
 		"0": "mechanical_drive:block/steering_wheel/steering_wheel_blue",
 		"particle": "mechanical_drive:block/steering_wheel/steering_wheel_blue"

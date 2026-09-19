@@ -1,6 +1,4 @@
 {
-  "format_version": "1.21.6",
-  "credit": "Ponder-only axial lever plate",
   "parent": "block/block",
   "texture_size": [32, 32],
   "textures": {

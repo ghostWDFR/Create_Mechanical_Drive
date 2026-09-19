@@ -1,6 +1,4 @@
 {
-	"format_version": "1.9.0",
-	"credit": "Made with Blockbench",
 	"textures": {
 		"3": "mechanical_drive:block/suspension_strut/strut_joint",
 		"particle": "simulated:block/spring/spring"

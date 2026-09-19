@@ -1,6 +1,4 @@
 {
-	"format_version": "1.9.0",
-	"credit": "Made with Blockbench",
 	"textures": {
 		"2": "mechanical_drive:block/tracks/wheels/sprocket/sprocket_wheel",
 		"3": "create:block/axis",

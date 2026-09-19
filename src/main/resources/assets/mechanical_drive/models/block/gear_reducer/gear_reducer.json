@@ -1,6 +1,4 @@
 {
-	"format_version": "1.21.11",
-	"credit": "Made with Blockbench",
 	"textures": {
 		"2": "mechanical_drive:block/gear_reducer/gear_reducer_off",
 		"4": "create:block/gearbox",

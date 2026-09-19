@@ -1,6 +1,4 @@
 {
-	"format_version": "1.21.11",
-	"credit": "Made with Blockbench",
 	"textures": {
 		"4": "create:block/gearbox",
 		"particle": "create:block/andesite_casing",

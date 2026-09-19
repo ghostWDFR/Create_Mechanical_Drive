@@ -1,6 +1,4 @@
 {
-	"format_version": "1.21.11",
-	"credit": "Made with Blockbench",
 	"textures": {
 		"0": "create:block/cogwheel_axis",
 		"2": "create:block/axis_top",

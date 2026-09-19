@@ -1,6 +1,4 @@
 {
-  "format_version": "1.9.0",
-  "credit": "Made with Blockbench",
   "textures": {
     "6": "mechanical_drive:block/tracks/mounts/torsion_mount/torsion_mount",
     "particle": "mechanical_drive:block/tracks/mounts/torsion_mount/torsion_mount"

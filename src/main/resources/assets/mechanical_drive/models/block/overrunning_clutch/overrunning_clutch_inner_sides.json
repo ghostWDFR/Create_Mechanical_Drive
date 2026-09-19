@@ -1,6 +1,4 @@
 {
-	"format_version": "1.21.11",
-	"credit": "Made with Blockbench",
 	"textures": {
 		"3": "mechanical_drive:block/overrunning_clutch/inner_clutch",
 		"particle": "create:block/andesite_casing"

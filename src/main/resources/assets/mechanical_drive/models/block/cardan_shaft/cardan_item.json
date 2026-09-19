@@ -1,6 +1,4 @@
 {
-	"format_version": "1.9.0",
-	"credit": "Made with Blockbench",
 	"no_java_limits_scale": 2,
 	"textures": {
 		"0": "mechanical_drive:block/cardan_shaft/cardan",

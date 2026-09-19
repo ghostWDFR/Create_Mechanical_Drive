@@ -1,6 +1,4 @@
 {
-	"format_version": "1.9.0",
-	"credit": "Made with Blockbench",
 	"textures": {
 		"0": "mechanical_drive:block/rigid_link/rigid_link",
 		"particle": "mechanical_drive:block/rigid_link/rigid_link"

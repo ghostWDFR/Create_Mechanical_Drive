@@ -1,6 +1,4 @@
 {
-	"format_version": "1.9.0",
-	"credit": "Made with Blockbench",
 	"textures": {
 		"3": "create:block/axis",
 		"4": "create:block/axis_top",

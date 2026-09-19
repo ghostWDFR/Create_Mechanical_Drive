@@ -1,6 +1,4 @@
 {
-	"format_version": "1.9.0",
-	"credit": "Made with Blockbench",
 	"textures": {
 		"2": "offroad:block/suspension_0",
 		"particle": "offroad:block/custom_break_particles/suspension_mount"
