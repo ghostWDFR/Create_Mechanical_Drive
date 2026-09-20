@@ -31,35 +31,9 @@ Join the official **Create: Mechanical Drive** Discord server for development up
 
 ---
 
-## License
+### [LICENSE](LICENSE.md)
 
-### Source Code
-
-The source code of **Create: Mechanical Drive** is licensed under the **MIT License**.
-
-This applies to the source code contained in this repository unless stated otherwise.
-
-### Assets
-
-All original assets bundled with Create: Mechanical Drive are protected by copyright.
-
-This includes, but is not limited to:
-
-- Custom block models
-- Custom item models
-- Textures
-- Item and block artwork
-- Other original visual assets included with the mod
-
-These assets are **not licensed under the MIT License**.
-
-They may not be reused, redistributed, modified, republished, or incorporated into other projects without permission from the respective copyright holder.
-
-Some bundled assets and resource references originate from third-party projects and are subject to their own licenses, permissions, or usage terms.
-
-For detailed attribution and information about third-party assets, see:
-
-### [THIRD_PARTY_ASSETS.md](THIRD_PARTY_ASSETS.md)
+### [THIRD_PARTY_ASSETS](THIRD_PARTY_ASSETS.md)
 
 ---
 
