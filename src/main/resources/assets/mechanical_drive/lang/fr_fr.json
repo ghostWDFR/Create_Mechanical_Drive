@@ -192,7 +192,6 @@
   "item.mechanical_drive.suspension_strut_settings_paper.dynamics": "Dynamique du ressort",
   "item.mechanical_drive.suspension_strut_settings_paper.constraints": "Contrainte de mouvement",
   "item.mechanical_drive.suspension_strut_settings_paper.value": "  • %s : %s",
-  "item.mechanical_drive.suspension_strut_settings_paper.hint": "Consommé après collage ; un papier vierge est rendu",
   "item.mechanical_drive.screwdriver.suspension_multiplier": "Multiplicateur du ressort : %s",
   "item.mechanical_drive.screwdriver.mode": "Mode du tournevis : %s",
   "item.mechanical_drive.screwdriver.mode.spring": "Force du ressort",

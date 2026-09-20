@@ -192,7 +192,6 @@
   "item.mechanical_drive.suspension_strut_settings_paper.dynamics": "Dinâmica da Mola",
   "item.mechanical_drive.suspension_strut_settings_paper.constraints": "Restrição de Movimento",
   "item.mechanical_drive.suspension_strut_settings_paper.value": "  • %s: %s",
-  "item.mechanical_drive.suspension_strut_settings_paper.hint": "Consumido após Colar; um papel em branco é devolvido",
   "item.mechanical_drive.screwdriver.suspension_multiplier": "Multiplicador da mola da suspensão: %s",
   "item.mechanical_drive.screwdriver.mode": "Modo da Chave de Fenda: %s",
   "item.mechanical_drive.screwdriver.mode.spring": "Força da Mola",

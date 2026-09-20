@@ -192,7 +192,6 @@
   "item.mechanical_drive.suspension_strut_settings_paper.dynamics": "Dynamika Sprężyny",
   "item.mechanical_drive.suspension_strut_settings_paper.constraints": "Ograniczenie Ruchu",
   "item.mechanical_drive.suspension_strut_settings_paper.value": "  • %s: %s",
-  "item.mechanical_drive.suspension_strut_settings_paper.hint": "Zużywany po Wklejeniu; zwracany jest pusty papier",
   "item.mechanical_drive.screwdriver.suspension_multiplier": "Mnożnik sprężyny zawieszenia: %s",
   "item.mechanical_drive.screwdriver.mode": "Tryb Śrubokręta: %s",
   "item.mechanical_drive.screwdriver.mode.spring": "Siła Sprężyny",

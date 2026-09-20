@@ -192,7 +192,6 @@
   "item.mechanical_drive.suspension_strut_settings_paper.dynamics": "Spring Dynamics",
   "item.mechanical_drive.suspension_strut_settings_paper.constraints": "Motion Constraint",
   "item.mechanical_drive.suspension_strut_settings_paper.value": "  • %s: %s",
-  "item.mechanical_drive.suspension_strut_settings_paper.hint": "Consumed after Paste; one blank paper is returned",
   "item.mechanical_drive.screwdriver.suspension_multiplier": "Suspension spring multiplier: %s",
   "item.mechanical_drive.screwdriver.mode": "Screwdriver mode: %s",
   "item.mechanical_drive.screwdriver.mode.spring": "Spring Strength",

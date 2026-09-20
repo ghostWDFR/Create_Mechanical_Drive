@@ -839,7 +839,7 @@ public class AdjustmentWrenchItem extends Item {
         lines.add(loreText(Component.empty(), ChatFormatting.GRAY));
         lines.add(loreText(
                 Component.translatable(
-                        "item.mechanical_drive.suspension_strut_settings_paper.hint"
+                        "item.mechanical_drive.mount_settings_paper.hint"
                 ),
                 ChatFormatting.DARK_GRAY
         ));

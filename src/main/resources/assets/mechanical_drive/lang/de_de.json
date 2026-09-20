@@ -192,7 +192,6 @@
   "item.mechanical_drive.suspension_strut_settings_paper.dynamics": "Federdynamik",
   "item.mechanical_drive.suspension_strut_settings_paper.constraints": "Bewegungsgrenze",
   "item.mechanical_drive.suspension_strut_settings_paper.value": "  • %s: %s",
-  "item.mechanical_drive.suspension_strut_settings_paper.hint": "Nach Einfügen verbraucht; leeres Papier kommt zurück",
   "item.mechanical_drive.screwdriver.suspension_multiplier": "Feder-Multiplikator: %s",
   "item.mechanical_drive.screwdriver.mode": "Schraubendreher-Modus: %s",
   "item.mechanical_drive.screwdriver.mode.spring": "Federstärke",

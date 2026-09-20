@@ -192,7 +192,6 @@
   "item.mechanical_drive.suspension_strut_settings_paper.dynamics": "Динамика пружины",
   "item.mechanical_drive.suspension_strut_settings_paper.constraints": "Ограничение движения",
   "item.mechanical_drive.suspension_strut_settings_paper.value": "  • %s: %s",
-  "item.mechanical_drive.suspension_strut_settings_paper.hint": "Расходуется при вставке; одна пустая бумага возвращается",
   "item.mechanical_drive.screwdriver.suspension_multiplier": "Множитель силы подвески: %s",
   "item.mechanical_drive.screwdriver.mode": "Режим отвёртки: %s",
   "item.mechanical_drive.screwdriver.mode.spring": "Жёсткость пружины",
