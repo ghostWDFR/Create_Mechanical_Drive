@@ -164,6 +164,7 @@
   "item.mechanical_drive.mount_settings_paper.offset": "  • %s : %s blocs",
   "item.mechanical_drive.mount_settings_paper.multiplier": "  • %s : %s",
   "item.mechanical_drive.mount_settings_paper.hint": "Utilisez le mode Coller avec une clé de réglage",
+  "item.mechanical_drive.suspension_strut_settings_paper.hint": "Utilisez le mode Coller avec une clé de réglage",
   "item.mechanical_drive.spring_tuning_wrench": "Clé de réglage de ressort",
   "item.mechanical_drive.spring_tuning_wrench.mode": "Mode de la clé de ressort : %s",
   "item.mechanical_drive.spring_tuning_wrench.tuned": "%s : %s",

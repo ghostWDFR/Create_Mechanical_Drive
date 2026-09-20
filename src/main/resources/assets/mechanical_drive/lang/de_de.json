@@ -164,6 +164,7 @@
   "item.mechanical_drive.mount_settings_paper.offset": "  • %s: %s Blöcke",
   "item.mechanical_drive.mount_settings_paper.multiplier": "  • %s: %s",
   "item.mechanical_drive.mount_settings_paper.hint": "Mit Einfügen-Modus des Einstellschlüssels anwenden",
+  "item.mechanical_drive.suspension_strut_settings_paper.hint": "Mit Einfügen-Modus des Einstellschlüssels anwenden",
   "item.mechanical_drive.spring_tuning_wrench": "Feder-Einstellschlüssel",
   "item.mechanical_drive.spring_tuning_wrench.mode": "Feder-Einstellschlüssel: %s",
   "item.mechanical_drive.spring_tuning_wrench.tuned": "%s: %s",

@@ -164,6 +164,7 @@
   "item.mechanical_drive.mount_settings_paper.offset": "  • %s: %s bloków",
   "item.mechanical_drive.mount_settings_paper.multiplier": "  • %s: %s",
   "item.mechanical_drive.mount_settings_paper.hint": "Użyj trybu Wklej w Kluczu Regulacyjnym, aby zastosować",
+  "item.mechanical_drive.suspension_strut_settings_paper.hint": "Użyj trybu Wklej w Kluczu Regulacyjnym, aby zastosować",
   "item.mechanical_drive.spring_tuning_wrench": "Klucz do Regulacji Sprężyn",
   "item.mechanical_drive.spring_tuning_wrench.mode": "Tryb Klucza do Regulacji Sprężyn: %s",
   "item.mechanical_drive.spring_tuning_wrench.tuned": "%s: %s",

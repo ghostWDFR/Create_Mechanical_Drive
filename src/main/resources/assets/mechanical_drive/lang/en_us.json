@@ -164,6 +164,7 @@
   "item.mechanical_drive.mount_settings_paper.offset": "  • %s: %s blocks",
   "item.mechanical_drive.mount_settings_paper.multiplier": "  • %s: %s",
   "item.mechanical_drive.mount_settings_paper.hint": "Use Paste mode on an Adjustment Wrench to apply",
+  "item.mechanical_drive.suspension_strut_settings_paper.hint": "Use Paste mode on an Adjustment Wrench to apply",
   "item.mechanical_drive.spring_tuning_wrench": "Spring Tuning Wrench",
   "item.mechanical_drive.spring_tuning_wrench.mode": "Spring Tuning Wrench mode: %s",
   "item.mechanical_drive.spring_tuning_wrench.tuned": "%s: %s",

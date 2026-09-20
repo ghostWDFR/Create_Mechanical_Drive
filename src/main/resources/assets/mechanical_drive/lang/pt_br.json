@@ -164,6 +164,7 @@
   "item.mechanical_drive.mount_settings_paper.offset": "  • %s: %s blocos",
   "item.mechanical_drive.mount_settings_paper.multiplier": "  • %s: %s",
   "item.mechanical_drive.mount_settings_paper.hint": "Use o modo Colar da Chave de Ajuste para aplicar",
+  "item.mechanical_drive.suspension_strut_settings_paper.hint": "Use o modo Colar da Chave de Ajuste para aplicar",
   "item.mechanical_drive.spring_tuning_wrench": "Chave de Ajuste de Mola",
   "item.mechanical_drive.spring_tuning_wrench.mode": "Modo da Chave de Ajuste de Mola: %s",
   "item.mechanical_drive.spring_tuning_wrench.tuned": "%s: %s",

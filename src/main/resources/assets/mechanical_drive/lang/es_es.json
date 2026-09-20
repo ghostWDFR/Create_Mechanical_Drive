@@ -164,6 +164,7 @@
   "item.mechanical_drive.mount_settings_paper.offset": "  • %s: %s bloques",
   "item.mechanical_drive.mount_settings_paper.multiplier": "  • %s: %s",
   "item.mechanical_drive.mount_settings_paper.hint": "Usa el modo Pegar de la llave de ajuste",
+  "item.mechanical_drive.suspension_strut_settings_paper.hint": "Usa el modo Pegar de la llave de ajuste",
   "item.mechanical_drive.spring_tuning_wrench": "Llave de ajuste de muelle",
   "item.mechanical_drive.spring_tuning_wrench.mode": "Modo de llave de muelle: %s",
   "item.mechanical_drive.spring_tuning_wrench.tuned": "%s: %s",

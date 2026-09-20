@@ -164,6 +164,7 @@
   "item.mechanical_drive.mount_settings_paper.offset": "  • %s: %s блока",
   "item.mechanical_drive.mount_settings_paper.multiplier": "  • %s: %s",
   "item.mechanical_drive.mount_settings_paper.hint": "Для применения используйте режим «Вставка» разводного ключа",
+  "item.mechanical_drive.suspension_strut_settings_paper.hint": "Для применения используйте режим «Вставка» разводного ключа",
   "item.mechanical_drive.spring_tuning_wrench": "Ключ для настройки пружин",
   "item.mechanical_drive.spring_tuning_wrench.mode": "Режим ключа для пружин: %s",
   "item.mechanical_drive.spring_tuning_wrench.tuned": "%s: %s",
