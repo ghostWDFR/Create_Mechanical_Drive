@@ -34,6 +34,28 @@ public class ServiceTankBlockEntity extends FluidTankBlockEntity {
     ) {
         super(type, pos, state);
         tankInventory.setCapacity(BASE_CAPACITY);
+        window = false;
+        luminosity = 0;
+    }
+
+    @Override
+    public void toggleWindows() {
+        window = false;
+    }
+
+    @Override
+    public void setWindows(boolean window) {
+        this.window = false;
+    }
+
+    @Override
+    public void setExtraData(Object extraData) {
+        window = false;
+    }
+
+    @Override
+    protected void setLuminosity(int luminosity) {
+        super.setLuminosity(0);
     }
 
     public void requestNetworkUpdate() {
@@ -298,6 +320,8 @@ public class ServiceTankBlockEntity extends FluidTankBlockEntity {
             boolean clientPacket
     ) {
         super.read(tag, registries, clientPacket);
+        window = false;
+        luminosity = 0;
         linkedDirections.clear();
         for (int ordinal : tag.getIntArray(LINKED_DIRECTIONS_KEY)) {
             if (ordinal >= 0

@@ -13,6 +13,7 @@ import net.minecraft.world.item.BucketItem;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.context.BlockPlaceContext;
+import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.block.Mirror;
@@ -67,6 +68,15 @@ public class ServiceTankBlock extends FluidTankBlock {
     @Override
     public BlockEntityType<? extends FluidTankBlockEntity> getBlockEntityType() {
         return CreateMechanicalDrive.SERVICE_TANK_BLOCK_ENTITY.get();
+    }
+
+    @Override
+    public int getLightEmission(
+            BlockState state,
+            BlockGetter level,
+            BlockPos pos
+    ) {
+        return 0;
     }
 
     @Override
